@@ -27,8 +27,8 @@ start_rand() ->
 start_tcp(Port) ->
 	{ok, _} = supervisor:start_child(
 					gs_server_sup,
-					{gs_server_lister_sup,
-						{gs_server_lister_sup, start_link,[]},
+					{gs_server_listner_sup,
+						{gs_server_listner_sup, start_link,[]},
 						transient, infinity, supervisor, [gs_server_lister_sup]}),
 	ok.
 
