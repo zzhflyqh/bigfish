@@ -1,6 +1,6 @@
 {application, gameserver,
  [
-  {description, ""},
+  {description, "gameserver demo"},
   {vsn, "1"},
   {registered, []},
   {applications, [

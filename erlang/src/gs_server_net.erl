@@ -6,13 +6,14 @@ start([Ip, Port, Sid])->
 	ok = start_disperse([Ip, Port, Sid]), %% line
 	ok = start_rand(),
 	ok = start_client(),
-	ok = start_tcp(),
+	ok = start_tcp( Port ),
 	ok = start_timer().
 
 start_kernel() ->
 	ok.
 
 start_disperse([Ip, Port, Sid]) ->
+    io:format(" ~p ~p ~p ~n", [Ip, Port, Sid]),
 	ok.
 
 start_rand() ->
@@ -38,4 +39,12 @@ start_timer() ->
 								{timer_frame, start_link, []},
 								permanent, 10000, supervisor, [timer_frame]}),
 	ok.
+
+start_client() ->
+    {ok, _} = supervisor:start_child(
+                gs_server_sup,
+                {mod_client,
+                    {mod_client, start_link, []},
+                    permanent, 10000, supervisor, [ mod_client ]}),
+    ok.
 
