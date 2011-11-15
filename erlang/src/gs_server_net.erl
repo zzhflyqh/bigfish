@@ -18,9 +18,9 @@ start_disperse([Ip, Port, Sid]) ->
 start_rand() ->
 	{ok, _} = supervisor:start_child(
 						gs_server_sup,
-						{rand_app,
-							{rand_app, start_link, []},
-							permanent, 10000, supervisor, [rand_app]}),
+						{mod_rand,
+							{mod_rand, start_link, []},
+							permanent, 10000, supervisor, [mod_rand]}),
 	ok.
 
 start_tcp(Port) ->

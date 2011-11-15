@@ -13,13 +13,10 @@ start_link() ->
 get_seed() ->
     gen_server:call( ?MODULE, get_seed ).
 
-%% --- 服务器内部实现 ---------------------------------
-
 init([]) ->
     State = #state{},
     {ok, State}.
 
-%% 返回一个随机数组合做为其它进程的随机数种子
 handle_call(get_seed, _From, State) ->
     case State#state.seed of
         undefined -> random:seed(erlang:now());

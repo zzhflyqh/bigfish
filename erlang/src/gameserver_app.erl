@@ -1,8 +1,16 @@
--module(gs_server_app).
+-module(gameserver_app).
+
 -behaviour(application).
+
+%% Application callbacks
 -export([start/2, stop/1]).
+
 -include("common.hrl").
 -include("record.hrl").
+
+%% ===================================================================
+%% Application callbacks
+%% ===================================================================
 
 start(normal,[]) ->
 	[Ip, Port, Sid] = init:get_plain_arguments(),
