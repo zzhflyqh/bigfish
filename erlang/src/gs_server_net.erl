@@ -4,8 +4,8 @@
 start([Ip, Port, Sid])->
 	ok = start_kernel(), %% kernel, init(such as db, ets...)
 	ok = start_disperse([Ip, Port, Sid]), %% line
-	ok = start_rand(),
-	ok = start_client(),
+	%%ok = start_rand(),
+	%%ok = start_client(),
 	ok = start_tcp( Port ),
 	ok = start_timer().
 
@@ -18,7 +18,7 @@ start_disperse([Ip, Port, Sid]) ->
 
 start_rand() ->
 	{ok, _} = supervisor:start_child(
-						gs_server_sup,
+						gameserver_sup,
 						{mod_rand,
 							{mod_rand, start_link, []},
 							permanent, 10000, supervisor, [mod_rand]}),
@@ -26,15 +26,15 @@ start_rand() ->
 
 start_tcp(Port) ->
 	{ok, _} = supervisor:start_child(
-					gs_server_sup,
+					gameserver_sup,
 					{gs_server_listner_sup,
-						{gs_server_listner_sup, start_link,[]},
+						{gs_server_listner_sup, start_link,[Port]},
 						transient, infinity, supervisor, [gs_server_lister_sup]}),
 	ok.
 
 start_timer() ->
 	{ok, _} = supervisor:start_child(
-							gs_server_sup,
+							gameserver_sup,
 							{ timer_frame,
 								{timer_frame, start_link, []},
 								permanent, 10000, supervisor, [timer_frame]}),
@@ -42,7 +42,7 @@ start_timer() ->
 
 start_client() ->
     {ok, _} = supervisor:start_child(
-                gs_server_sup,
+                gameserver_sup,
                 {mod_client,
                     {mod_client, start_link, []},
                     permanent, 10000, supervisor, [ mod_client ]}),

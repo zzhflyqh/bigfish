@@ -14,7 +14,7 @@
 
 start(normal,[]) ->
 	[Ip, Port, Sid] = init:get_plain_arguments(),
-	{ok, SupPid} = gs_server_sup:start_link(),
+	{ok, SupPid} = gameserver_sup:start_link(),
 	gs_server_net:start([Ip, list_to_integer(Port), list_to_integer(Sid)]),
 	{ok, SupPid}.
 

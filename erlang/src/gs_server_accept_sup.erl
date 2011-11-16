@@ -7,5 +7,5 @@ start_link() ->
 
 init([]) ->
 	{ok, {{simple_one_for_one, 10, 10},
-			[{gs_server_accpt,{gs_server_accept, start_link, []},
+			[{gs_server_accept,{gs_server_accept, start_link, []},
 					transient, brutal_kill, worker, [gs_server_accept]}]}}.

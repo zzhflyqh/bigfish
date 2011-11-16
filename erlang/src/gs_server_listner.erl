@@ -1,7 +1,7 @@
 -module(gs_server_listner).
 -behaviour(gen_server).
 -export([start_link/2]).
--export([init/1, handle_call/3, handle_cast/2, handl_info/2,
+-export([init/1, handle_call/3, handle_cast/2, handle_info/2,
 		terminate/2, code_change/3]).
 -include("common.hrl").
 
@@ -27,6 +27,9 @@ handle_call( _Req, _From, State) ->
 
 handle_cast( _Msg, State ) ->
 	{noreply, State}.
+
+handle_info( _Info, State ) ->
+    {noreply, State}.
 
 terminate(_Reason, State) ->
 	gen_tcp:close(State),

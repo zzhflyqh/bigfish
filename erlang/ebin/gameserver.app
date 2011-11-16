@@ -5,5 +5,6 @@
               {applications,[kernel,stdlib]},
               {mod,{gameserver_app,[]}},
               {env,[]},
-              {modules,[gameserver_app,gameserver_sup,gs_server_net,
-                        mod_rand]}]}.
+              {modules,[gameserver_app,gameserver_sup,gs,gs_server_accept,
+                        gs_server_accept_sup,gs_server_listner,
+                        gs_server_listner_sup,gs_server_net,mod_rand]}]}.
