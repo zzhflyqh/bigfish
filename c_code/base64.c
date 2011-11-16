@@ -1,3 +1,4 @@
+
 #include <stdio.h>
 static char map64[] = { 
 	-1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, 
@@ -119,7 +120,3 @@ void encode64(char *outbuf, char *string, int outlen)
 		} 
 } 
 
-int main(void)
-{
-	const char src[] = "xxxxxxxxx";
-}
