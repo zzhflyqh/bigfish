@@ -1,0 +1,6 @@
+./zeromq_client.cc
+./zmq_client.lua
+./zeromq_server.cc
+./demo.people.pb.cc
+./zeromq_help.h
+./demo.people.pb.h

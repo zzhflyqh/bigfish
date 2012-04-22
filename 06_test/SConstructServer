@@ -1,0 +1,4 @@
+Program( 'zeromq_server', ['zeromq_help.h','zeromq_server.cc', 'demo.people.pb.cc', 'demo.people.pb.h'],
+		LIBS = ['zmq','protobuf'],
+		LIBPATH = ['/usr/lib','/usr/local/lib']
+	   )
