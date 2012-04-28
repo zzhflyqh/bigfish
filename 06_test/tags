@@ -1,0 +1,107 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.6	//
+ByteSize	demo.people.pb.cc	/^int People::ByteSize() const {$/;"	f	class:demo::People
+Clear	demo.people.pb.cc	/^void People::Clear() {$/;"	f	class:demo::People
+CopyFrom	demo.people.pb.cc	/^void People::CopyFrom(const ::google::protobuf::Message& from) {$/;"	f	class:demo::People
+CopyFrom	demo.people.pb.cc	/^void People::CopyFrom(const People& from) {$/;"	f	class:demo::People
+DO_	demo.people.pb.cc	182;"	d	file:
+DO_	demo.people.pb.cc	248;"	d	file:
+GetCachedSize	demo.people.pb.h	/^  int GetCachedSize() const { return _cached_size_; }$/;"	f	class:demo::People
+GetMetadata	demo.people.pb.cc	/^::google::protobuf::Metadata People::GetMetadata() const {$/;"	f	class:demo::People
+INTERNAL_SUPPRESS_PROTOBUF_FIELD_DEPRECATION	demo.people.pb.cc	3;"	d	file:
+InitAsDefaultInstance	demo.people.pb.cc	/^void People::InitAsDefaultInstance() {$/;"	f	class:demo::People
+IsInitialized	demo.people.pb.cc	/^bool People::IsInitialized() const {$/;"	f	class:demo::People
+MergeFrom	demo.people.pb.cc	/^void People::MergeFrom(const ::google::protobuf::Message& from) {$/;"	f	class:demo::People
+MergeFrom	demo.people.pb.cc	/^void People::MergeFrom(const People& from) {$/;"	f	class:demo::People
+MergePartialFromCodedStream	demo.people.pb.cc	/^bool People::MergePartialFromCodedStream($/;"	f	class:demo::People
+New	demo.people.pb.cc	/^People* People::New() const {$/;"	f	class:demo::People
+PROTOBUF_demo_2epeople_2eproto__INCLUDED	demo.people.pb.h	5;"	d
+People	demo.people.pb.cc	/^People::People()$/;"	f	class:demo::People
+People	demo.people.pb.cc	/^People::People(const People& from)$/;"	f	class:demo::People
+People	demo.people.pb.h	/^class People : public ::google::protobuf::Message {$/;"	c	namespace:demo
+People_descriptor_	demo.people.pb.cc	/^const ::google::protobuf::Descriptor* People_descriptor_ = NULL;$/;"	v
+People_reflection_	demo.people.pb.cc	/^  People_reflection_ = NULL;$/;"	v
+SerializeWithCachedSizes	demo.people.pb.cc	/^void People::SerializeWithCachedSizes($/;"	f	class:demo::People
+SerializeWithCachedSizesToArray	demo.people.pb.cc	/^::google::protobuf::uint8* People::SerializeWithCachedSizesToArray($/;"	f	class:demo::People
+SetCachedSize	demo.people.pb.cc	/^void People::SetCachedSize(int size) const {$/;"	f	class:demo::People
+SharedCtor	demo.people.pb.cc	/^void People::SharedCtor() {$/;"	f	class:demo::People
+SharedDtor	demo.people.pb.cc	/^void People::SharedDtor() {$/;"	f	class:demo::People
+StaticDescriptorInitializer_demo_2epeople_2eproto	demo.people.pb.cc	/^  StaticDescriptorInitializer_demo_2epeople_2eproto() {$/;"	f	struct:demo::StaticDescriptorInitializer_demo_2epeople_2eproto
+StaticDescriptorInitializer_demo_2epeople_2eproto	demo.people.pb.cc	/^struct StaticDescriptorInitializer_demo_2epeople_2eproto {$/;"	s	namespace:demo	file:
+Swap	demo.people.pb.cc	/^void People::Swap(People* other) {$/;"	f	class:demo::People
+ZMQ_DEALER	zeromq_help.h	58;"	d
+ZMQ_ROUTER	zeromq_help.h	55;"	d
+__ZEROMQ_HELP_H_	zeromq_help.h	21;"	d
+_cached_size_	demo.people.pb.h	/^  mutable int _cached_size_;$/;"	m	class:demo::People
+_has_bits_	demo.people.pb.h	/^  ::google::protobuf::uint32 _has_bits_[(3 + 31) \/ 32];$/;"	m	class:demo::People
+_unknown_fields_	demo.people.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:demo::People
+clear_email	demo.people.pb.h	/^inline void People::clear_email() {$/;"	f	class:demo::People
+clear_has_email	demo.people.pb.h	/^inline void People::clear_has_email() {$/;"	f	class:demo::People
+clear_has_id	demo.people.pb.h	/^inline void People::clear_has_id() {$/;"	f	class:demo::People
+clear_has_name	demo.people.pb.h	/^inline void People::clear_has_name() {$/;"	f	class:demo::People
+clear_id	demo.people.pb.h	/^inline void People::clear_id() {$/;"	f	class:demo::People
+clear_name	demo.people.pb.h	/^inline void People::clear_name() {$/;"	f	class:demo::People
+default_instance	demo.people.pb.cc	/^const People& People::default_instance() {$/;"	f	class:demo::People
+default_instance_	demo.people.pb.cc	/^People* People::default_instance_ = NULL;$/;"	m	class:demo::People	file:
+default_instance_	demo.people.pb.h	/^  static People* default_instance_;$/;"	m	class:demo::People
+demo	demo.people.pb.cc	/^namespace demo {$/;"	n	file:
+demo	demo.people.pb.h	/^namespace demo {$/;"	n
+descriptor	demo.people.pb.cc	/^const ::google::protobuf::Descriptor* People::descriptor() {$/;"	f	class:demo::People
+email	demo.people.pb.h	/^inline const ::std::string& People::email() const {$/;"	f	class:demo::People
+email_	demo.people.pb.h	/^  ::std::string* email_;$/;"	m	class:demo::People
+google	demo.people.pb.h	/^namespace google {$/;"	n
+has_email	demo.people.pb.h	/^inline bool People::has_email() const {$/;"	f	class:demo::People
+has_id	demo.people.pb.h	/^inline bool People::has_id() const {$/;"	f	class:demo::People
+has_name	demo.people.pb.h	/^inline bool People::has_name() const {$/;"	f	class:demo::People
+id	demo.people.pb.h	/^inline ::google::protobuf::int32 People::id() const {$/;"	f	class:demo::People
+id_	demo.people.pb.h	/^  ::google::protobuf::int32 id_;$/;"	m	class:demo::People
+kEmailFieldNumber	demo.people.pb.cc	/^const int People::kEmailFieldNumber;$/;"	m	class:demo::People	file:
+kEmailFieldNumber	demo.people.pb.h	/^  static const int kEmailFieldNumber = 3;$/;"	m	class:demo::People
+kIdFieldNumber	demo.people.pb.cc	/^const int People::kIdFieldNumber;$/;"	m	class:demo::People	file:
+kIdFieldNumber	demo.people.pb.h	/^  static const int kIdFieldNumber = 2;$/;"	m	class:demo::People
+kNameFieldNumber	demo.people.pb.cc	/^const int People::kNameFieldNumber;$/;"	m	class:demo::People	file:
+kNameFieldNumber	demo.people.pb.h	/^  static const int kNameFieldNumber = 1;$/;"	m	class:demo::People
+main	zeromq_client.cc	/^int main( void )$/;"	f
+main	zeromq_server.cc	/^int main( void )$/;"	f
+mutable_email	demo.people.pb.h	/^inline ::std::string* People::mutable_email() {$/;"	f	class:demo::People
+mutable_name	demo.people.pb.h	/^inline ::std::string* People::mutable_name() {$/;"	f	class:demo::People
+mutable_unknown_fields	demo.people.pb.h	/^  inline ::google::protobuf::UnknownFieldSet* mutable_unknown_fields() {$/;"	f	class:demo::People
+name	demo.people.pb.h	/^inline const ::std::string& People::name() const {$/;"	f	class:demo::People
+name_	demo.people.pb.h	/^  ::std::string* name_;$/;"	m	class:demo::People
+operator =	demo.people.pb.h	/^  inline People& operator=(const People& from) {$/;"	f	class:demo::People
+protobuf	demo.people.pb.h	/^namespace protobuf {$/;"	n	namespace:google
+protobuf_AddDesc_demo_2epeople_2eproto	demo.people.pb.cc	/^void protobuf_AddDesc_demo_2epeople_2eproto() {$/;"	f	namespace:demo
+protobuf_AssignDesc_demo_2epeople_2eproto	demo.people.pb.cc	/^void protobuf_AssignDesc_demo_2epeople_2eproto() {$/;"	f	namespace:demo
+protobuf_AssignDescriptorsOnce	demo.people.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:demo::__anon2
+protobuf_AssignDescriptors_once_	demo.people.pb.cc	/^GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);$/;"	v
+protobuf_RegisterTypes	demo.people.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:demo::__anon2
+protobuf_ShutdownFile_demo_2epeople_2eproto	demo.people.pb.cc	/^void protobuf_ShutdownFile_demo_2epeople_2eproto() {$/;"	f	namespace:demo
+randof	zeromq_help.h	64;"	d
+randof	zeromq_help.h	66;"	d
+release_email	demo.people.pb.h	/^inline ::std::string* People::release_email() {$/;"	f	class:demo::People
+release_name	demo.people.pb.h	/^inline ::std::string* People::release_name() {$/;"	f	class:demo::People
+s_clock	zeromq_help.h	/^s_clock (void)$/;"	f
+s_console	zeromq_help.h	/^s_console (const char *format, ...)$/;"	f
+s_dump	zeromq_help.h	/^s_dump (void *socket)$/;"	f
+s_recv	zeromq_help.h	/^s_recv (void *socket) {$/;"	f
+s_send	zeromq_help.h	/^s_send (void *socket, char *string) {$/;"	f
+s_sendmore	zeromq_help.h	/^s_sendmore (void *socket, char *string) {$/;"	f
+s_set_id	zeromq_help.h	/^s_set_id (void *socket)$/;"	f
+s_sleep	zeromq_help.h	/^s_sleep (int msecs)$/;"	f
+set_email	demo.people.pb.h	/^inline void People::set_email(const ::std::string& value) {$/;"	f	class:demo::People
+set_email	demo.people.pb.h	/^inline void People::set_email(const char* value) {$/;"	f	class:demo::People
+set_email	demo.people.pb.h	/^inline void People::set_email(const char* value, size_t size) {$/;"	f	class:demo::People
+set_has_email	demo.people.pb.h	/^inline void People::set_has_email() {$/;"	f	class:demo::People
+set_has_id	demo.people.pb.h	/^inline void People::set_has_id() {$/;"	f	class:demo::People
+set_has_name	demo.people.pb.h	/^inline void People::set_has_name() {$/;"	f	class:demo::People
+set_id	demo.people.pb.h	/^inline void People::set_id(::google::protobuf::int32 value) {$/;"	f	class:demo::People
+set_name	demo.people.pb.h	/^inline void People::set_name(const ::std::string& value) {$/;"	f	class:demo::People
+set_name	demo.people.pb.h	/^inline void People::set_name(const char* value) {$/;"	f	class:demo::People
+set_name	demo.people.pb.h	/^inline void People::set_name(const char* value, size_t size) {$/;"	f	class:demo::People
+static_descriptor_initializer_demo_2epeople_2eproto_	demo.people.pb.cc	/^} static_descriptor_initializer_demo_2epeople_2eproto_;$/;"	v	typeref:struct:demo::StaticDescriptorInitializer_demo_2epeople_2eproto
+unknown_fields	demo.people.pb.h	/^  inline const ::google::protobuf::UnknownFieldSet& unknown_fields() const {$/;"	f	class:demo::People
+~People	demo.people.pb.cc	/^People::~People() {$/;"	f	class:demo::People
