@@ -3,11 +3,12 @@
 !_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
 !_TAG_PROGRAM_NAME	Exuberant Ctags	//
 !_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
-!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+!_TAG_PROGRAM_VERSION	5.6	//
 A	tolua++-1.0.93/src/tests/tconstant.h	/^class A {$/;"	c
 A	tolua++-1.0.93/src/tests/tnamespace.h	/^namespace A {$/;"	n
 A	tolua++-1.0.93/src/tests/tvariable.h	/^struct A$/;"	s
 A	tolua++-1.0.93/src/tests/tvariable.h	/^typedef struct A A;$/;"	t	typeref:struct:A
+ASSERT	shared/ByteBuffer.h	7;"	d
 AUTO	include/google/protobuf/io/gzip_stream.h	/^    AUTO = 0,$/;"	e	enum:google::protobuf::io::GzipInputStream::Format
 Add	include/google/protobuf/extension_set.h	/^  static inline MutableType Add(int number, FieldType field_type,$/;"	f	class:google::protobuf::internal::RepeatedMessageTypeTraits
 Add	include/google/protobuf/extension_set.h	/^  static inline string* Add(int number, FieldType field_type,$/;"	f	class:google::protobuf::internal::RepeatedStringTypeTraits
@@ -57,19 +58,18 @@ BinOpr	include/lua/lcode.h	/^} BinOpr;$/;"	t	typeref:enum:BinOpr
 BriefNoLeaks	include/google/heap-checker.h	/^  bool BriefNoLeaks()  { return NoLeaks(); }$/;"	f	class:HeapLeakChecker
 BriefSameHeap	include/google/heap-checker.h	/^  bool BriefSameHeap() { return NoLeaks(); }$/;"	f	class:HeapLeakChecker
 BufferSize	include/google/protobuf/io/coded_stream.h	/^inline int CodedInputStream::BufferSize() const {$/;"	f	class:google::protobuf::io::CodedInputStream
+ByteBuffer	shared/ByteBuffer.h	/^        ByteBuffer(): _rpos(0), _wpos(0)$/;"	f	class:ByteBuffer
+ByteBuffer	shared/ByteBuffer.h	/^        ByteBuffer(const ByteBuffer &buf): _rpos(buf._rpos), _wpos(buf._wpos), _storage(buf._storage) { }$/;"	f	class:ByteBuffer
+ByteBuffer	shared/ByteBuffer.h	/^        ByteBuffer(size_t res): _rpos(0), _wpos(0)$/;"	f	class:ByteBuffer
+ByteBuffer	shared/ByteBuffer.h	/^class ByteBuffer$/;"	c
 ByteCount	include/google/protobuf/io/coded_stream.h	/^inline int CodedOutputStream::ByteCount() const {$/;"	f	class:google::protobuf::io::CodedOutputStream
 ByteSize	demo.people.pb.cc	/^int People::ByteSize() const {$/;"	f	class:demo::People
 BytesSize	include/google/protobuf/wire_format_lite_inl.h	/^inline int WireFormatLite::BytesSize(const string& value) {$/;"	f	class:google::protobuf::internal::WireFormatLite
 C	tolua++-1.0.93/src/tests/tnamespace.h	/^  namespace C {$/;"	n	namespace:A::B
 CANNOT_OPEN	include/google/protobuf/compiler/importer.h	/^    CANNOT_OPEN,$/;"	e	enum:google::protobuf::compiler::DiskSourceTree::DiskFileToVirtualFileResult
 CANT_OPEN_PROC_MAPS	include/google/heap-checker.h	/^    CANT_OPEN_PROC_MAPS,$/;"	e	enum:HeapLeakChecker::ProcMapsResult
-CCFLAGS	tolua++-1.0.93/config_linux.py	/^CCFLAGS = ['-I\/usr\/include\/lua5.1', '-O2', '-ansi', '-Wall']$/;"	v
-CCFLAGS	tolua++-1.0.93/config_msvc.py	/^CCFLAGS = ['\/nologo']$/;"	v
-CCFLAGS	tolua++-1.0.93/config_posix.py	/^CCFLAGS = ['-O2', '-ansi', '-Wall']$/;"	v
-CCFLAGS	tolua++-1.0.93/custom-5.1.py	/^CCFLAGS = ['-I\/usr\/include\/lua5.1', '-O2', '-ansi']$/;"	v
 CClosure	include/lua/lobject.h	/^typedef struct CClosure {$/;"	s
 CClosure	include/lua/lobject.h	/^} CClosure;$/;"	t	typeref:struct:CClosure
-CFLAGS	tolua++-1.0.93/debian/rules	/^CFLAGS = -Wall -g$/;"	m
 CODE_SIZE	include/google/protobuf/descriptor.pb.h	/^  static const OptimizeMode CODE_SIZE = FileOptions_OptimizeMode_CODE_SIZE;$/;"	m	class:google::protobuf::FileOptions
 CORD	include/google/protobuf/descriptor.pb.h	/^  static const CType CORD = FieldOptions_CType_CORD;$/;"	m	class:google::protobuf::FieldOptions
 CPPTYPE_BOOL	include/google/protobuf/descriptor.h	/^    CPPTYPE_BOOL        = 7,     \/\/ TYPE_BOOL$/;"	e	enum:google::protobuf::FieldDescriptor::CppType
@@ -176,6 +176,7 @@ CopyingOutputStreamAdaptor	include/google/protobuf/io/zero_copy_stream_impl_lite
 CppGenerator	include/google/protobuf/compiler/cpp/cpp_generator.h	/^class LIBPROTOC_EXPORT CppGenerator : public CodeGenerator {$/;"	c	namespace:google::protobuf::compiler::cpp
 CppType	include/google/protobuf/descriptor.h	/^  enum CppType {$/;"	g	class:google::protobuf::FieldDescriptor
 CppType	include/google/protobuf/wire_format_lite.h	/^  enum CppType {$/;"	g	class:google::protobuf::internal::WireFormatLite
+DEFAULT_SIZE	shared/ByteBuffer.h	/^        const static size_t DEFAULT_SIZE = 0x1000;$/;"	m	class:ByteBuffer
 DEFAULT_VALUE	include/google/protobuf/descriptor.h	/^      DEFAULT_VALUE,     \/\/ field default value$/;"	e	enum:google::protobuf::DescriptorPool::ErrorCollector::ErrorLocation
 DEPRECATED_PROTOBUF_FIELD	include/google/protobuf/generated_message_util.h	62;"	d
 DISABLE_LIBRARY_ALLOCS	include/google/heap-checker.h	/^    DISABLE_LIBRARY_ALLOCS$/;"	e	enum:HeapLeakChecker::ProcMapsTask
@@ -214,7 +215,6 @@ ENOBUFS	include/zmq.h	84;"	d
 ENOCOMPATPROTO	include/zmq.h	107;"	d
 ENOTSOCK	include/zmq.h	102;"	d
 ENOTSUP	include/zmq.h	78;"	d
-ENV	tolua++-1.0.93/config_msvc.py	/^ENV = os.environ$/;"	v
 EOZ	include/lua/lzio.h	16;"	d
 EPROTONOSUPPORT	include/zmq.h	81;"	d
 ERROR	tolua++-1.0.93/src/tests/tfunction.h	/^		ERROR = 1$/;"	e	enum:Point::Error
@@ -264,8 +264,8 @@ ExtensionSet	include/google/protobuf/extension_set.h	/^class LIBPROTOBUF_EXPORT 
 FINALIZEDBIT	include/lua/lgc.h	57;"	d
 FIRST	tolua++-1.0.93/src/tests/tconstant.h	1;"	d
 FIRST	tolua++-1.0.93/src/tests/tconstant.h	20;"	d
-FIRST	tolua++-1.0.93/src/tests/tfunction.h	/^ FIRST = 1,$/;"	e	enum:__anon7
-FIRST	tolua++-1.0.93/src/tests/tnamespace.h	/^	enum {FIRST=1};$/;"	e	enum:A::__anon6
+FIRST	tolua++-1.0.93/src/tests/tfunction.h	/^ FIRST = 1,$/;"	e	enum:__anon5
+FIRST	tolua++-1.0.93/src/tests/tnamespace.h	/^	enum {FIRST=1};$/;"	e	enum:A::__anon1
 FIRST_RESERVED	include/lua/llex.h	14;"	d
 FIXEDBIT	include/lua/lgc.h	60;"	d
 FREE	include/google/malloc_extension.h	/^    FREE,                 \/\/ Range is currently free$/;"	e	enum:base::MallocRange::Type
@@ -278,9 +278,9 @@ FieldDescriptorProto_Label	include/google/protobuf/descriptor.pb.h	/^enum FieldD
 FieldDescriptorProto_Label_LABEL_OPTIONAL	include/google/protobuf/descriptor.pb.h	/^  FieldDescriptorProto_Label_LABEL_OPTIONAL = 1,$/;"	e	enum:google::protobuf::FieldDescriptorProto_Label
 FieldDescriptorProto_Label_LABEL_REPEATED	include/google/protobuf/descriptor.pb.h	/^  FieldDescriptorProto_Label_LABEL_REPEATED = 3$/;"	e	enum:google::protobuf::FieldDescriptorProto_Label
 FieldDescriptorProto_Label_LABEL_REQUIRED	include/google/protobuf/descriptor.pb.h	/^  FieldDescriptorProto_Label_LABEL_REQUIRED = 2,$/;"	e	enum:google::protobuf::FieldDescriptorProto_Label
-FieldDescriptorProto_Label_Label_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FieldDescriptorProto_Label_Label_ARRAYSIZE = FieldDescriptorProto_Label_Label_MAX + 1;$/;"	m	namespace:google::protobuf
-FieldDescriptorProto_Label_Label_MAX	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Label FieldDescriptorProto_Label_Label_MAX = FieldDescriptorProto_Label_LABEL_REPEATED;$/;"	m	namespace:google::protobuf
-FieldDescriptorProto_Label_Label_MIN	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Label FieldDescriptorProto_Label_Label_MIN = FieldDescriptorProto_Label_LABEL_OPTIONAL;$/;"	m	namespace:google::protobuf
+FieldDescriptorProto_Label_Label_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FieldDescriptorProto_Label_Label_ARRAYSIZE = FieldDescriptorProto_Label_Label_MAX + 1;$/;"	v
+FieldDescriptorProto_Label_Label_MAX	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Label FieldDescriptorProto_Label_Label_MAX = FieldDescriptorProto_Label_LABEL_REPEATED;$/;"	v
+FieldDescriptorProto_Label_Label_MIN	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Label FieldDescriptorProto_Label_Label_MIN = FieldDescriptorProto_Label_LABEL_OPTIONAL;$/;"	v
 FieldDescriptorProto_Label_Name	include/google/protobuf/descriptor.pb.h	/^inline const ::std::string& FieldDescriptorProto_Label_Name(FieldDescriptorProto_Label value) {$/;"	f	namespace:google::protobuf
 FieldDescriptorProto_Label_Parse	include/google/protobuf/descriptor.pb.h	/^inline bool FieldDescriptorProto_Label_Parse($/;"	f	namespace:google::protobuf
 FieldDescriptorProto_Type	include/google/protobuf/descriptor.pb.h	/^enum FieldDescriptorProto_Type {$/;"	g	namespace:google::protobuf
@@ -304,15 +304,15 @@ FieldDescriptorProto_Type_TYPE_SINT64	include/google/protobuf/descriptor.pb.h	/^
 FieldDescriptorProto_Type_TYPE_STRING	include/google/protobuf/descriptor.pb.h	/^  FieldDescriptorProto_Type_TYPE_STRING = 9,$/;"	e	enum:google::protobuf::FieldDescriptorProto_Type
 FieldDescriptorProto_Type_TYPE_UINT32	include/google/protobuf/descriptor.pb.h	/^  FieldDescriptorProto_Type_TYPE_UINT32 = 13,$/;"	e	enum:google::protobuf::FieldDescriptorProto_Type
 FieldDescriptorProto_Type_TYPE_UINT64	include/google/protobuf/descriptor.pb.h	/^  FieldDescriptorProto_Type_TYPE_UINT64 = 4,$/;"	e	enum:google::protobuf::FieldDescriptorProto_Type
-FieldDescriptorProto_Type_Type_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FieldDescriptorProto_Type_Type_ARRAYSIZE = FieldDescriptorProto_Type_Type_MAX + 1;$/;"	m	namespace:google::protobuf
-FieldDescriptorProto_Type_Type_MAX	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Type FieldDescriptorProto_Type_Type_MAX = FieldDescriptorProto_Type_TYPE_SINT64;$/;"	m	namespace:google::protobuf
-FieldDescriptorProto_Type_Type_MIN	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Type FieldDescriptorProto_Type_Type_MIN = FieldDescriptorProto_Type_TYPE_DOUBLE;$/;"	m	namespace:google::protobuf
+FieldDescriptorProto_Type_Type_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FieldDescriptorProto_Type_Type_ARRAYSIZE = FieldDescriptorProto_Type_Type_MAX + 1;$/;"	v
+FieldDescriptorProto_Type_Type_MAX	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Type FieldDescriptorProto_Type_Type_MAX = FieldDescriptorProto_Type_TYPE_SINT64;$/;"	v
+FieldDescriptorProto_Type_Type_MIN	include/google/protobuf/descriptor.pb.h	/^const FieldDescriptorProto_Type FieldDescriptorProto_Type_Type_MIN = FieldDescriptorProto_Type_TYPE_DOUBLE;$/;"	v
 FieldOptions	include/google/protobuf/descriptor.pb.h	/^class LIBPROTOBUF_EXPORT FieldOptions : public ::google::protobuf::Message {$/;"	c	namespace:google::protobuf
 FieldOptions_CType	include/google/protobuf/descriptor.pb.h	/^enum FieldOptions_CType {$/;"	g	namespace:google::protobuf
 FieldOptions_CType_CORD	include/google/protobuf/descriptor.pb.h	/^  FieldOptions_CType_CORD = 1,$/;"	e	enum:google::protobuf::FieldOptions_CType
-FieldOptions_CType_CType_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FieldOptions_CType_CType_ARRAYSIZE = FieldOptions_CType_CType_MAX + 1;$/;"	m	namespace:google::protobuf
-FieldOptions_CType_CType_MAX	include/google/protobuf/descriptor.pb.h	/^const FieldOptions_CType FieldOptions_CType_CType_MAX = FieldOptions_CType_STRING_PIECE;$/;"	m	namespace:google::protobuf
-FieldOptions_CType_CType_MIN	include/google/protobuf/descriptor.pb.h	/^const FieldOptions_CType FieldOptions_CType_CType_MIN = FieldOptions_CType_STRING;$/;"	m	namespace:google::protobuf
+FieldOptions_CType_CType_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FieldOptions_CType_CType_ARRAYSIZE = FieldOptions_CType_CType_MAX + 1;$/;"	v
+FieldOptions_CType_CType_MAX	include/google/protobuf/descriptor.pb.h	/^const FieldOptions_CType FieldOptions_CType_CType_MAX = FieldOptions_CType_STRING_PIECE;$/;"	v
+FieldOptions_CType_CType_MIN	include/google/protobuf/descriptor.pb.h	/^const FieldOptions_CType FieldOptions_CType_CType_MIN = FieldOptions_CType_STRING;$/;"	v
 FieldOptions_CType_Name	include/google/protobuf/descriptor.pb.h	/^inline const ::std::string& FieldOptions_CType_Name(FieldOptions_CType value) {$/;"	f	namespace:google::protobuf
 FieldOptions_CType_Parse	include/google/protobuf/descriptor.pb.h	/^inline bool FieldOptions_CType_Parse($/;"	f	namespace:google::protobuf
 FieldOptions_CType_STRING	include/google/protobuf/descriptor.pb.h	/^  FieldOptions_CType_STRING = 0,$/;"	e	enum:google::protobuf::FieldOptions_CType
@@ -333,9 +333,9 @@ FileOptions_OptimizeMode	include/google/protobuf/descriptor.pb.h	/^enum FileOpti
 FileOptions_OptimizeMode_CODE_SIZE	include/google/protobuf/descriptor.pb.h	/^  FileOptions_OptimizeMode_CODE_SIZE = 2,$/;"	e	enum:google::protobuf::FileOptions_OptimizeMode
 FileOptions_OptimizeMode_LITE_RUNTIME	include/google/protobuf/descriptor.pb.h	/^  FileOptions_OptimizeMode_LITE_RUNTIME = 3$/;"	e	enum:google::protobuf::FileOptions_OptimizeMode
 FileOptions_OptimizeMode_Name	include/google/protobuf/descriptor.pb.h	/^inline const ::std::string& FileOptions_OptimizeMode_Name(FileOptions_OptimizeMode value) {$/;"	f	namespace:google::protobuf
-FileOptions_OptimizeMode_OptimizeMode_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FileOptions_OptimizeMode_OptimizeMode_ARRAYSIZE = FileOptions_OptimizeMode_OptimizeMode_MAX + 1;$/;"	m	namespace:google::protobuf
-FileOptions_OptimizeMode_OptimizeMode_MAX	include/google/protobuf/descriptor.pb.h	/^const FileOptions_OptimizeMode FileOptions_OptimizeMode_OptimizeMode_MAX = FileOptions_OptimizeMode_LITE_RUNTIME;$/;"	m	namespace:google::protobuf
-FileOptions_OptimizeMode_OptimizeMode_MIN	include/google/protobuf/descriptor.pb.h	/^const FileOptions_OptimizeMode FileOptions_OptimizeMode_OptimizeMode_MIN = FileOptions_OptimizeMode_SPEED;$/;"	m	namespace:google::protobuf
+FileOptions_OptimizeMode_OptimizeMode_ARRAYSIZE	include/google/protobuf/descriptor.pb.h	/^const int FileOptions_OptimizeMode_OptimizeMode_ARRAYSIZE = FileOptions_OptimizeMode_OptimizeMode_MAX + 1;$/;"	v
+FileOptions_OptimizeMode_OptimizeMode_MAX	include/google/protobuf/descriptor.pb.h	/^const FileOptions_OptimizeMode FileOptions_OptimizeMode_OptimizeMode_MAX = FileOptions_OptimizeMode_LITE_RUNTIME;$/;"	v
+FileOptions_OptimizeMode_OptimizeMode_MIN	include/google/protobuf/descriptor.pb.h	/^const FileOptions_OptimizeMode FileOptions_OptimizeMode_OptimizeMode_MIN = FileOptions_OptimizeMode_SPEED;$/;"	v
 FileOptions_OptimizeMode_Parse	include/google/protobuf/descriptor.pb.h	/^inline bool FileOptions_OptimizeMode_Parse($/;"	f	namespace:google::protobuf
 FileOptions_OptimizeMode_SPEED	include/google/protobuf/descriptor.pb.h	/^  FileOptions_OptimizeMode_SPEED = 1,$/;"	e	enum:google::protobuf::FileOptions_OptimizeMode
 FileOutputStream	include/google/protobuf/io/zero_copy_stream_impl.h	/^class LIBPROTOBUF_EXPORT FileOutputStream : public ZeroCopyOutputStream {$/;"	c	namespace:google::protobuf::io
@@ -406,22 +406,30 @@ GOOGLE_COMPILE_ASSERT	include/google/protobuf/stubs/common.h	374;"	d
 GOOGLE_COMPILE_ASSERT	include/google/protobuf/stubs/common.h	375;"	d
 GOOGLE_DCHECK	include/google/protobuf/stubs/common.h	691;"	d
 GOOGLE_DCHECK	include/google/protobuf/stubs/common.h	719;"	d
+GOOGLE_DCHECK	include/google/protobuf/stubs/common.h	731;"	d
 GOOGLE_DCHECK_EQ	include/google/protobuf/stubs/common.h	692;"	d
 GOOGLE_DCHECK_EQ	include/google/protobuf/stubs/common.h	720;"	d
+GOOGLE_DCHECK_EQ	include/google/protobuf/stubs/common.h	732;"	d
 GOOGLE_DCHECK_GE	include/google/protobuf/stubs/common.h	697;"	d
 GOOGLE_DCHECK_GE	include/google/protobuf/stubs/common.h	725;"	d
+GOOGLE_DCHECK_GE	include/google/protobuf/stubs/common.h	737;"	d
 GOOGLE_DCHECK_GT	include/google/protobuf/stubs/common.h	696;"	d
 GOOGLE_DCHECK_GT	include/google/protobuf/stubs/common.h	724;"	d
+GOOGLE_DCHECK_GT	include/google/protobuf/stubs/common.h	736;"	d
 GOOGLE_DCHECK_LE	include/google/protobuf/stubs/common.h	695;"	d
 GOOGLE_DCHECK_LE	include/google/protobuf/stubs/common.h	723;"	d
+GOOGLE_DCHECK_LE	include/google/protobuf/stubs/common.h	735;"	d
 GOOGLE_DCHECK_LT	include/google/protobuf/stubs/common.h	694;"	d
 GOOGLE_DCHECK_LT	include/google/protobuf/stubs/common.h	722;"	d
+GOOGLE_DCHECK_LT	include/google/protobuf/stubs/common.h	734;"	d
 GOOGLE_DCHECK_NE	include/google/protobuf/stubs/common.h	693;"	d
 GOOGLE_DCHECK_NE	include/google/protobuf/stubs/common.h	721;"	d
+GOOGLE_DCHECK_NE	include/google/protobuf/stubs/common.h	733;"	d
 GOOGLE_DISALLOW_EVIL_CONSTRUCTORS	include/google/protobuf/stubs/common.h	83;"	d
 GOOGLE_DISALLOW_EVIL_CONSTRUCTORS	include/google/protobuf/stubs/common.h	84;"	d
 GOOGLE_DLOG	include/google/protobuf/stubs/common.h	690;"	d
 GOOGLE_DLOG	include/google/protobuf/stubs/common.h	717;"	d
+GOOGLE_DLOG	include/google/protobuf/stubs/common.h	729;"	d
 GOOGLE_LL_FORMAT	include/google/protobuf/stubs/common.h	180;"	d
 GOOGLE_LL_FORMAT	include/google/protobuf/stubs/common.h	185;"	d
 GOOGLE_LL_FORMAT	include/google/protobuf/stubs/common.h	189;"	d
@@ -544,6 +552,7 @@ GetMessage	include/google/protobuf/stubs/common.h	/^inline BOOL GetMessage($/;"	
 GetMessage	include/google/protobuf/stubs/common.h	69;"	d
 GetMessage_Win32	include/google/protobuf/stubs/common.h	/^inline BOOL GetMessage_Win32($/;"	f
 GetMetadata	demo.people.pb.cc	/^::google::protobuf::Metadata People::GetMetadata() const {$/;"	f	class:demo::People
+GetOpcode	shared/WorldPacket.h	/^        uint16 GetOpcode() const { return m_opcode; }$/;"	f	class:WorldPacket
 GetReflection	include/google/protobuf/message.h	/^  virtual const Reflection* GetReflection() const {$/;"	f	class:google::protobuf::Message
 GetSyntaxIdentifier	include/google/protobuf/compiler/parser.h	/^  const string& GetSyntaxIdentifier() { return syntax_identifier_; }$/;"	f	class:google::protobuf::compiler::Parser
 GetTagFieldNumber	include/google/protobuf/wire_format_lite.h	/^inline int WireFormatLite::GetTagFieldNumber(uint32 tag) {$/;"	f	class:google::protobuf::internal::WireFormatLite
@@ -560,6 +569,8 @@ HeapLeakChecker	include/google/heap-checker.h	/^class PERFTOOLS_DLL_DECL HeapLea
 HiddenPointer	include/google/heap-checker.h	/^  explicit HiddenPointer(T* t)$/;"	f	class:HiddenPointer
 HiddenPointer	include/google/heap-checker.h	/^class HiddenPointer {$/;"	c
 INDEXK	include/lua/lopcodes.h	125;"	d
+INIT_LUA_MAIN_FILE	lua_server.h	11;"	d
+INIT_LUA_MAIN_FILE	lua_server.h	13;"	d
 INL	include/google/protobuf/wire_format_lite.h	/^                                                    CType* value) INL;$/;"	m	class:google::protobuf::internal::WireFormatLite
 INL	include/google/protobuf/wire_format_lite.h	/^                                           RepeatedField<CType>* value) INL;$/;"	m	class:google::protobuf::internal::WireFormatLite
 INL	include/google/protobuf/wire_format_lite.h	/^                                         RepeatedField<CType>* value) INL;$/;"	m	class:google::protobuf::internal::WireFormatLite
@@ -613,6 +624,7 @@ INUSE	include/google/malloc_extension.h	/^    INUSE,                \/\/ Applica
 ISK	include/lua/lopcodes.h	122;"	d
 Importer	include/google/protobuf/compiler/importer.h	/^class LIBPROTOBUF_EXPORT Importer {$/;"	c	namespace:google::protobuf::compiler
 IncrementRecursionDepth	include/google/protobuf/io/coded_stream.h	/^inline bool CodedInputStream::IncrementRecursionDepth() {$/;"	f	class:google::protobuf::io::CodedInputStream
+Init	shared/WorldPacket.h	/^        void Init(uint16 opcode, size_t newres=200)$/;"	f	class:WorldPacket
 InitAsDefaultInstance	demo.people.pb.cc	/^void People::InitAsDefaultInstance() {$/;"	f	class:demo::People
 Instruction	include/lua/llimits.h	/^typedef lu_int32 Instruction;$/;"	t
 Int32Size	include/google/protobuf/wire_format_lite_inl.h	/^inline int WireFormatLite::Int32Size(int32 value) {$/;"	f	class:google::protobuf::internal::WireFormatLite
@@ -639,11 +651,6 @@ LClosure	include/lua/lobject.h	/^} LClosure;$/;"	t	typeref:struct:LClosure
 LFIELDS_PER_FLUSH	include/lua/lopcodes.h	265;"	d
 LIBPROTOBUF_EXPORT	include/google/protobuf/stubs/common.h	90;"	d
 LIBPROTOC_EXPORT	include/google/protobuf/stubs/common.h	95;"	d
-LIBS	tolua++-1.0.93/config_linux.py	/^LIBS = ['lua5.1', 'dl', 'm']$/;"	v
-LIBS	tolua++-1.0.93/config_msvc.py	/^LIBS = ['lua', 'lualib']$/;"	v
-LIBS	tolua++-1.0.93/config_posix.py	/^LIBS = ['lua', 'lualib', 'm']$/;"	v
-LIBS	tolua++-1.0.93/custom-5.1.py	/^LIBS = ['lua5.1', 'dl', 'm']$/;"	v
-LINKFLAGS	tolua++-1.0.93/config_msvc.py	/^LINKFLAGS = ['\/nologo']$/;"	v
 LITE_RUNTIME	include/google/protobuf/descriptor.pb.h	/^  static const OptimizeMode LITE_RUNTIME = FileOptions_OptimizeMode_LITE_RUNTIME;$/;"	m	class:google::protobuf::FileOptions
 LOGLEVEL_DFATAL	include/google/protobuf/stubs/common.h	/^  LOGLEVEL_DFATAL = LOGLEVEL_ERROR$/;"	e	enum:google::protobuf::LogLevel
 LOGLEVEL_ERROR	include/google/protobuf/stubs/common.h	/^  LOGLEVEL_ERROR,    \/\/ An error occurred which should never happen during$/;"	e	enum:google::protobuf::LogLevel
@@ -809,6 +816,7 @@ LUA_VERSION	include/lua/lua.h	19;"	d
 LUA_VERSION_NUM	include/lua/lua.h	21;"	d
 LUA_WIN	include/lua/luaconf.h	33;"	d
 LUA_YIELD	include/lua/lua.h	43;"	d
+L_	lua_server.h	/^		int lua_State *L_;$/;"	m	class:LuaServer
 L_Umaxalign	include/lua/llimits.h	/^typedef LUAI_USER_ALIGNMENT_T L_Umaxalign;$/;"	t
 Label	include/google/protobuf/descriptor.h	/^  enum Label {$/;"	g	class:google::protobuf::FieldDescriptor
 Label	include/google/protobuf/descriptor.pb.h	/^  typedef FieldDescriptorProto_Label Label;$/;"	t	class:google::protobuf::FieldDescriptorProto
@@ -835,6 +843,9 @@ LogLevel	include/google/protobuf/stubs/common.h	/^enum LogLevel {$/;"	g	namespac
 LogMessage	include/google/protobuf/stubs/common.h	/^class LIBPROTOBUF_EXPORT LogMessage {$/;"	c	namespace:google::protobuf::internal
 LogSilencer	include/google/protobuf/stubs/common.h	/^class LIBPROTOBUF_EXPORT LogSilencer {$/;"	c	namespace:google::protobuf
 LuaRef	lua_server.h	/^enum LuaRef{$/;"	g
+LuaServer	lua_server.cc	/^LuaServer::LuaServer( )$/;"	f	class:LuaServer
+LuaServer	lua_server.h	/^class LuaServer{$/;"	c
+MANGOSSERVER_WORLDPACKET_H	shared/WorldPacket.h	2;"	d
 MASK0	include/lua/lopcodes.h	74;"	d
 MASK1	include/lua/lopcodes.h	71;"	d
 MAXARG_A	include/lua/lopcodes.h	65;"	d
@@ -846,12 +857,14 @@ MAXARG_sBx	include/lua/lopcodes.h	58;"	d
 MAXARG_sBx	include/lua/lopcodes.h	61;"	d
 MAXINDEXRK	include/lua/lopcodes.h	127;"	d
 MAXSTACK	include/lua/llimits.h	93;"	d
+MAX_CHARS	lua_server.h	8;"	d
 MAX_CPPTYPE	include/google/protobuf/descriptor.h	/^    MAX_CPPTYPE         = 10,    \/\/ Constant useful for defining lookup tables$/;"	e	enum:google::protobuf::FieldDescriptor::CppType
 MAX_CPPTYPE	include/google/protobuf/wire_format_lite.h	/^    MAX_CPPTYPE         = 10,$/;"	e	enum:google::protobuf::internal::WireFormatLite::CppType
 MAX_FIELD_TYPE	include/google/protobuf/wire_format_lite.h	/^    MAX_FIELD_TYPE      = 18,$/;"	e	enum:google::protobuf::internal::WireFormatLite::FieldType
 MAX_INT	include/lua/llimits.h	35;"	d
 MAX_LABEL	include/google/protobuf/descriptor.h	/^    MAX_LABEL           = 3,    \/\/ Constant useful for defining lookup tables$/;"	e	enum:google::protobuf::FieldDescriptor::Label
 MAX_LUMEM	include/lua/llimits.h	32;"	d
+MAX_REFS	lua_server.h	7;"	d
 MAX_SIZET	include/lua/llimits.h	30;"	d
 MAX_TYPE	include/google/protobuf/descriptor.h	/^    MAX_TYPE            = 18,  \/\/ Constant useful for defining lookup tables$/;"	e	enum:google::protobuf::FieldDescriptor::Type
 MEMERRMSG	include/lua/lmem.h	16;"	d
@@ -860,9 +873,9 @@ MODE_COMPILE	include/google/protobuf/compiler/command_line_interface.h	/^    MOD
 MODE_DECODE	include/google/protobuf/compiler/command_line_interface.h	/^    MODE_DECODE    \/\/ --decode:  read binary from stdin, write text to stdout.$/;"	e	enum:google::protobuf::compiler::CommandLineInterface::Mode
 MODE_ENCODE	include/google/protobuf/compiler/command_line_interface.h	/^    MODE_ENCODE,   \/\/ --encode:  read text from stdin, write binary to stdout.$/;"	e	enum:google::protobuf::compiler::CommandLineInterface::Mode
 M_FIRST	tolua++-1.0.93/src/tests/tconstant.h	9;"	d
-M_ONE	tolua++-1.0.93/src/tests/tconstant.h	/^	M_ONE = 1,$/;"	e	enum:__anon4
+M_ONE	tolua++-1.0.93/src/tests/tconstant.h	/^	M_ONE = 1,$/;"	e	enum:__anon3
 M_SECOND	tolua++-1.0.93/src/tests/tconstant.h	10;"	d
-M_TWO	tolua++-1.0.93/src/tests/tconstant.h	/^	M_TWO = 2$/;"	e	enum:__anon4
+M_TWO	tolua++-1.0.93/src/tests/tconstant.h	/^	M_TWO = 2$/;"	e	enum:__anon3
 MakeRed	tolua++-1.0.93/src/tests/tfunction.h	/^ static ColorPoint* MakeRed (float x, float y)$/;"	f	class:ColorPoint
 MakeTag	include/google/protobuf/wire_format.h	/^inline uint32 WireFormat::MakeTag(const FieldDescriptor* field) {$/;"	f	class:google::protobuf::internal::WireFormat
 MakeTag	include/google/protobuf/wire_format_lite.h	/^inline uint32 WireFormatLite::MakeTag(int field_number, WireType type) {$/;"	f	class:google::protobuf::internal::WireFormatLite
@@ -974,8 +987,8 @@ NoLeaks	include/google/heap-checker.h	/^  bool NoLeaks() { return DoNoLeaks(DO_N
 Node	include/lua/lobject.h	/^typedef struct Node {$/;"	s
 Node	include/lua/lobject.h	/^} Node;$/;"	t	typeref:struct:Node
 ONE	tolua++-1.0.93/src/tests/tclass.h	/^		ONE,$/;"	e	enum:Test::Tst_E::Pete
-ONE	tolua++-1.0.93/src/tests/tconstant.h	/^	 ONE = 1,$/;"	e	enum:A::__anon5
-ONE	tolua++-1.0.93/src/tests/tconstant.h	/^	ONE = 1,$/;"	e	enum:__anon3
+ONE	tolua++-1.0.93/src/tests/tconstant.h	/^	 ONE = 1,$/;"	e	enum:A::__anon4
+ONE	tolua++-1.0.93/src/tests/tconstant.h	/^	ONE = 1,$/;"	e	enum:__anon2
 ON_EXIT	lua_server.h	/^	ON_EXIT        = 1,$/;"	e	enum:LuaRef
 ON_FRAME_MOVE	lua_server.h	/^	ON_FRAME_MOVE$/;"	e	enum:LuaRef
 OPR_ADD	include/lua/lcode.h	/^  OPR_ADD, OPR_SUB, OPR_MUL, OPR_DIV, OPR_MOD, OPR_POW,$/;"	e	enum:BinOpr
@@ -1000,44 +1013,44 @@ OPR_POW	include/lua/lcode.h	/^  OPR_ADD, OPR_SUB, OPR_MUL, OPR_DIV, OPR_MOD, OPR
 OPR_SUB	include/lua/lcode.h	/^  OPR_ADD, OPR_SUB, OPR_MUL, OPR_DIV, OPR_MOD, OPR_POW,$/;"	e	enum:BinOpr
 OPTION_NAME	include/google/protobuf/descriptor.h	/^      OPTION_NAME,       \/\/ name in assignment$/;"	e	enum:google::protobuf::DescriptorPool::ErrorCollector::ErrorLocation
 OPTION_VALUE	include/google/protobuf/descriptor.h	/^      OPTION_VALUE,      \/\/ value in option assignment$/;"	e	enum:google::protobuf::DescriptorPool::ErrorCollector::ErrorLocation
-OP_ADD	include/lua/lopcodes.h	/^OP_ADD,\/*	A B C	R(A) := RK(B) + RK(C)				*\/$/;"	e	enum:__anon18
-OP_CALL	include/lua/lopcodes.h	/^OP_CALL,\/*	A B C	R(A), ... ,R(A+C-2) := R(A)(R(A+1), ... ,R(A+B-1)) *\/$/;"	e	enum:__anon18
-OP_CLOSE	include/lua/lopcodes.h	/^OP_CLOSE,\/*	A 	close all variables in the stack up to (>=) R(A)*\/$/;"	e	enum:__anon18
-OP_CLOSURE	include/lua/lopcodes.h	/^OP_CLOSURE,\/*	A Bx	R(A) := closure(KPROTO[Bx], R(A), ... ,R(A+n))	*\/$/;"	e	enum:__anon18
-OP_CONCAT	include/lua/lopcodes.h	/^OP_CONCAT,\/*	A B C	R(A) := R(B).. ... ..R(C)			*\/$/;"	e	enum:__anon18
-OP_DIV	include/lua/lopcodes.h	/^OP_DIV,\/*	A B C	R(A) := RK(B) \/ RK(C)				*\/$/;"	e	enum:__anon18
-OP_EQ	include/lua/lopcodes.h	/^OP_EQ,\/*	A B C	if ((RK(B) == RK(C)) ~= A) then pc++		*\/$/;"	e	enum:__anon18
-OP_FORLOOP	include/lua/lopcodes.h	/^OP_FORLOOP,\/*	A sBx	R(A)+=R(A+2);$/;"	e	enum:__anon18
-OP_FORPREP	include/lua/lopcodes.h	/^OP_FORPREP,\/*	A sBx	R(A)-=R(A+2); pc+=sBx				*\/$/;"	e	enum:__anon18
-OP_GETGLOBAL	include/lua/lopcodes.h	/^OP_GETGLOBAL,\/*	A Bx	R(A) := Gbl[Kst(Bx)]				*\/$/;"	e	enum:__anon18
-OP_GETTABLE	include/lua/lopcodes.h	/^OP_GETTABLE,\/*	A B C	R(A) := R(B)[RK(C)]				*\/$/;"	e	enum:__anon18
-OP_GETUPVAL	include/lua/lopcodes.h	/^OP_GETUPVAL,\/*	A B	R(A) := UpValue[B]				*\/$/;"	e	enum:__anon18
-OP_JMP	include/lua/lopcodes.h	/^OP_JMP,\/*	sBx	pc+=sBx					*\/$/;"	e	enum:__anon18
-OP_LE	include/lua/lopcodes.h	/^OP_LE,\/*	A B C	if ((RK(B) <= RK(C)) ~= A) then pc++  		*\/$/;"	e	enum:__anon18
-OP_LEN	include/lua/lopcodes.h	/^OP_LEN,\/*	A B	R(A) := length of R(B)				*\/$/;"	e	enum:__anon18
-OP_LOADBOOL	include/lua/lopcodes.h	/^OP_LOADBOOL,\/*	A B C	R(A) := (Bool)B; if (C) pc++			*\/$/;"	e	enum:__anon18
-OP_LOADK	include/lua/lopcodes.h	/^OP_LOADK,\/*	A Bx	R(A) := Kst(Bx)					*\/$/;"	e	enum:__anon18
-OP_LOADNIL	include/lua/lopcodes.h	/^OP_LOADNIL,\/*	A B	R(A) := ... := R(B) := nil			*\/$/;"	e	enum:__anon18
-OP_LT	include/lua/lopcodes.h	/^OP_LT,\/*	A B C	if ((RK(B) <  RK(C)) ~= A) then pc++  		*\/$/;"	e	enum:__anon18
-OP_MOD	include/lua/lopcodes.h	/^OP_MOD,\/*	A B C	R(A) := RK(B) % RK(C)				*\/$/;"	e	enum:__anon18
-OP_MOVE	include/lua/lopcodes.h	/^OP_MOVE,\/*	A B	R(A) := R(B)					*\/$/;"	e	enum:__anon18
-OP_MUL	include/lua/lopcodes.h	/^OP_MUL,\/*	A B C	R(A) := RK(B) * RK(C)				*\/$/;"	e	enum:__anon18
-OP_NEWTABLE	include/lua/lopcodes.h	/^OP_NEWTABLE,\/*	A B C	R(A) := {} (size = B,C)				*\/$/;"	e	enum:__anon18
-OP_NOT	include/lua/lopcodes.h	/^OP_NOT,\/*	A B	R(A) := not R(B)				*\/$/;"	e	enum:__anon18
-OP_POW	include/lua/lopcodes.h	/^OP_POW,\/*	A B C	R(A) := RK(B) ^ RK(C)				*\/$/;"	e	enum:__anon18
-OP_RETURN	include/lua/lopcodes.h	/^OP_RETURN,\/*	A B	return R(A), ... ,R(A+B-2)	(see note)	*\/$/;"	e	enum:__anon18
-OP_SELF	include/lua/lopcodes.h	/^OP_SELF,\/*	A B C	R(A+1) := R(B); R(A) := R(B)[RK(C)]		*\/$/;"	e	enum:__anon18
-OP_SETGLOBAL	include/lua/lopcodes.h	/^OP_SETGLOBAL,\/*	A Bx	Gbl[Kst(Bx)] := R(A)				*\/$/;"	e	enum:__anon18
-OP_SETLIST	include/lua/lopcodes.h	/^OP_SETLIST,\/*	A B C	R(A)[(C-1)*FPF+i] := R(A+i), 1 <= i <= B	*\/$/;"	e	enum:__anon18
-OP_SETTABLE	include/lua/lopcodes.h	/^OP_SETTABLE,\/*	A B C	R(A)[RK(B)] := RK(C)				*\/$/;"	e	enum:__anon18
-OP_SETUPVAL	include/lua/lopcodes.h	/^OP_SETUPVAL,\/*	A B	UpValue[B] := R(A)				*\/$/;"	e	enum:__anon18
-OP_SUB	include/lua/lopcodes.h	/^OP_SUB,\/*	A B C	R(A) := RK(B) - RK(C)				*\/$/;"	e	enum:__anon18
-OP_TAILCALL	include/lua/lopcodes.h	/^OP_TAILCALL,\/*	A B C	return R(A)(R(A+1), ... ,R(A+B-1))		*\/$/;"	e	enum:__anon18
-OP_TEST	include/lua/lopcodes.h	/^OP_TEST,\/*	A C	if not (R(A) <=> C) then pc++			*\/ $/;"	e	enum:__anon18
-OP_TESTSET	include/lua/lopcodes.h	/^OP_TESTSET,\/*	A B C	if (R(B) <=> C) then R(A) := R(B) else pc++	*\/ $/;"	e	enum:__anon18
-OP_TFORLOOP	include/lua/lopcodes.h	/^OP_TFORLOOP,\/*	A C	R(A+3), ... ,R(A+2+C) := R(A)(R(A+1), R(A+2)); $/;"	e	enum:__anon18
-OP_UNM	include/lua/lopcodes.h	/^OP_UNM,\/*	A B	R(A) := -R(B)					*\/$/;"	e	enum:__anon18
-OP_VARARG	include/lua/lopcodes.h	/^OP_VARARG\/*	A B	R(A), R(A+1), ..., R(A+B-1) = vararg		*\/$/;"	e	enum:__anon18
+OP_ADD	include/lua/lopcodes.h	/^OP_ADD,\/*	A B C	R(A) := RK(B) + RK(C)				*\/$/;"	e	enum:__anon11
+OP_CALL	include/lua/lopcodes.h	/^OP_CALL,\/*	A B C	R(A), ... ,R(A+C-2) := R(A)(R(A+1), ... ,R(A+B-1)) *\/$/;"	e	enum:__anon11
+OP_CLOSE	include/lua/lopcodes.h	/^OP_CLOSE,\/*	A 	close all variables in the stack up to (>=) R(A)*\/$/;"	e	enum:__anon11
+OP_CLOSURE	include/lua/lopcodes.h	/^OP_CLOSURE,\/*	A Bx	R(A) := closure(KPROTO[Bx], R(A), ... ,R(A+n))	*\/$/;"	e	enum:__anon11
+OP_CONCAT	include/lua/lopcodes.h	/^OP_CONCAT,\/*	A B C	R(A) := R(B).. ... ..R(C)			*\/$/;"	e	enum:__anon11
+OP_DIV	include/lua/lopcodes.h	/^OP_DIV,\/*	A B C	R(A) := RK(B) \/ RK(C)				*\/$/;"	e	enum:__anon11
+OP_EQ	include/lua/lopcodes.h	/^OP_EQ,\/*	A B C	if ((RK(B) == RK(C)) ~= A) then pc++		*\/$/;"	e	enum:__anon11
+OP_FORLOOP	include/lua/lopcodes.h	/^OP_FORLOOP,\/*	A sBx	R(A)+=R(A+2);$/;"	e	enum:__anon11
+OP_FORPREP	include/lua/lopcodes.h	/^OP_FORPREP,\/*	A sBx	R(A)-=R(A+2); pc+=sBx				*\/$/;"	e	enum:__anon11
+OP_GETGLOBAL	include/lua/lopcodes.h	/^OP_GETGLOBAL,\/*	A Bx	R(A) := Gbl[Kst(Bx)]				*\/$/;"	e	enum:__anon11
+OP_GETTABLE	include/lua/lopcodes.h	/^OP_GETTABLE,\/*	A B C	R(A) := R(B)[RK(C)]				*\/$/;"	e	enum:__anon11
+OP_GETUPVAL	include/lua/lopcodes.h	/^OP_GETUPVAL,\/*	A B	R(A) := UpValue[B]				*\/$/;"	e	enum:__anon11
+OP_JMP	include/lua/lopcodes.h	/^OP_JMP,\/*	sBx	pc+=sBx					*\/$/;"	e	enum:__anon11
+OP_LE	include/lua/lopcodes.h	/^OP_LE,\/*	A B C	if ((RK(B) <= RK(C)) ~= A) then pc++  		*\/$/;"	e	enum:__anon11
+OP_LEN	include/lua/lopcodes.h	/^OP_LEN,\/*	A B	R(A) := length of R(B)				*\/$/;"	e	enum:__anon11
+OP_LOADBOOL	include/lua/lopcodes.h	/^OP_LOADBOOL,\/*	A B C	R(A) := (Bool)B; if (C) pc++			*\/$/;"	e	enum:__anon11
+OP_LOADK	include/lua/lopcodes.h	/^OP_LOADK,\/*	A Bx	R(A) := Kst(Bx)					*\/$/;"	e	enum:__anon11
+OP_LOADNIL	include/lua/lopcodes.h	/^OP_LOADNIL,\/*	A B	R(A) := ... := R(B) := nil			*\/$/;"	e	enum:__anon11
+OP_LT	include/lua/lopcodes.h	/^OP_LT,\/*	A B C	if ((RK(B) <  RK(C)) ~= A) then pc++  		*\/$/;"	e	enum:__anon11
+OP_MOD	include/lua/lopcodes.h	/^OP_MOD,\/*	A B C	R(A) := RK(B) % RK(C)				*\/$/;"	e	enum:__anon11
+OP_MOVE	include/lua/lopcodes.h	/^OP_MOVE,\/*	A B	R(A) := R(B)					*\/$/;"	e	enum:__anon11
+OP_MUL	include/lua/lopcodes.h	/^OP_MUL,\/*	A B C	R(A) := RK(B) * RK(C)				*\/$/;"	e	enum:__anon11
+OP_NEWTABLE	include/lua/lopcodes.h	/^OP_NEWTABLE,\/*	A B C	R(A) := {} (size = B,C)				*\/$/;"	e	enum:__anon11
+OP_NOT	include/lua/lopcodes.h	/^OP_NOT,\/*	A B	R(A) := not R(B)				*\/$/;"	e	enum:__anon11
+OP_POW	include/lua/lopcodes.h	/^OP_POW,\/*	A B C	R(A) := RK(B) ^ RK(C)				*\/$/;"	e	enum:__anon11
+OP_RETURN	include/lua/lopcodes.h	/^OP_RETURN,\/*	A B	return R(A), ... ,R(A+B-2)	(see note)	*\/$/;"	e	enum:__anon11
+OP_SELF	include/lua/lopcodes.h	/^OP_SELF,\/*	A B C	R(A+1) := R(B); R(A) := R(B)[RK(C)]		*\/$/;"	e	enum:__anon11
+OP_SETGLOBAL	include/lua/lopcodes.h	/^OP_SETGLOBAL,\/*	A Bx	Gbl[Kst(Bx)] := R(A)				*\/$/;"	e	enum:__anon11
+OP_SETLIST	include/lua/lopcodes.h	/^OP_SETLIST,\/*	A B C	R(A)[(C-1)*FPF+i] := R(A+i), 1 <= i <= B	*\/$/;"	e	enum:__anon11
+OP_SETTABLE	include/lua/lopcodes.h	/^OP_SETTABLE,\/*	A B C	R(A)[RK(B)] := RK(C)				*\/$/;"	e	enum:__anon11
+OP_SETUPVAL	include/lua/lopcodes.h	/^OP_SETUPVAL,\/*	A B	UpValue[B] := R(A)				*\/$/;"	e	enum:__anon11
+OP_SUB	include/lua/lopcodes.h	/^OP_SUB,\/*	A B C	R(A) := RK(B) - RK(C)				*\/$/;"	e	enum:__anon11
+OP_TAILCALL	include/lua/lopcodes.h	/^OP_TAILCALL,\/*	A B C	return R(A)(R(A+1), ... ,R(A+B-1))		*\/$/;"	e	enum:__anon11
+OP_TEST	include/lua/lopcodes.h	/^OP_TEST,\/*	A C	if not (R(A) <=> C) then pc++			*\/ $/;"	e	enum:__anon11
+OP_TESTSET	include/lua/lopcodes.h	/^OP_TESTSET,\/*	A B C	if (R(B) <=> C) then R(A) := R(B) else pc++	*\/ $/;"	e	enum:__anon11
+OP_TFORLOOP	include/lua/lopcodes.h	/^OP_TFORLOOP,\/*	A C	R(A+3), ... ,R(A+2+C) := R(A)(R(A+1), R(A+2)); $/;"	e	enum:__anon11
+OP_UNM	include/lua/lopcodes.h	/^OP_UNM,\/*	A B	R(A) := -R(B)					*\/$/;"	e	enum:__anon11
+OP_VARARG	include/lua/lopcodes.h	/^OP_VARARG\/*	A B	R(A), R(A+1), ..., R(A+B-1) = vararg		*\/$/;"	e	enum:__anon11
 OTHER	include/google/protobuf/descriptor.h	/^      OTHER              \/\/ some other problem$/;"	e	enum:google::protobuf::DescriptorPool::ErrorCollector::ErrorLocation
 OUTPUT_TYPE	include/google/protobuf/descriptor.h	/^      OUTPUT_TYPE,       \/\/ method output type$/;"	e	enum:google::protobuf::DescriptorPool::ErrorCollector::ErrorLocation
 OpArgK	include/lua/lopcodes.h	/^  OpArgK   \/* argument is a constant or register\/constant *\/$/;"	e	enum:OpArgMask
@@ -1045,7 +1058,7 @@ OpArgMask	include/lua/lopcodes.h	/^enum OpArgMask {$/;"	g
 OpArgN	include/lua/lopcodes.h	/^  OpArgN,  \/* argument is not used *\/$/;"	e	enum:OpArgMask
 OpArgR	include/lua/lopcodes.h	/^  OpArgR,  \/* argument is a register or a jump offset *\/$/;"	e	enum:OpArgMask
 OpArgU	include/lua/lopcodes.h	/^  OpArgU,  \/* argument is used *\/$/;"	e	enum:OpArgMask
-OpCode	include/lua/lopcodes.h	/^} OpCode;$/;"	t	typeref:enum:__anon18
+OpCode	include/lua/lopcodes.h	/^} OpCode;$/;"	t	typeref:enum:__anon11
 OpMode	include/lua/lopcodes.h	/^enum OpMode {iABC, iABx, iAsBx};  \/* basic instruction format *\/$/;"	g
 Operation	include/google/protobuf/wire_format.h	/^  enum Operation {$/;"	g	class:google::protobuf::internal::WireFormat
 Operator 	tolua++-1.0.93/src/bin/lua/operator.lua	/^function Operator (d,k,a,c)$/;"	f
@@ -1065,7 +1078,7 @@ OptionsType	include/google/protobuf/descriptor.h	/^  typedef FileOptions Options
 OptionsType	include/google/protobuf/descriptor.h	/^  typedef MessageOptions OptionsType;$/;"	t	class:google::protobuf::Descriptor
 OptionsType	include/google/protobuf/descriptor.h	/^  typedef MethodOptions OptionsType;$/;"	t	class:google::protobuf::MethodDescriptor
 OptionsType	include/google/protobuf/descriptor.h	/^  typedef ServiceOptions OptionsType;$/;"	t	class:google::protobuf::ServiceDescriptor
-Order	tolua++-1.0.93/src/tests/tfunction.h	/^} Order;$/;"	t	typeref:enum:__anon7
+Order	tolua++-1.0.93/src/tests/tfunction.h	/^} Order;$/;"	t	typeref:enum:__anon5
 OstreamOutputStream	include/google/protobuf/io/zero_copy_stream_impl.h	/^class LIBPROTOBUF_EXPORT OstreamOutputStream : public ZeroCopyOutputStream {$/;"	c	namespace:google::protobuf::io
 OutputDirective	include/google/protobuf/compiler/command_line_interface.h	/^  struct OutputDirective {$/;"	s	class:google::protobuf::compiler::CommandLineInterface
 OutputDirectory	include/google/protobuf/compiler/code_generator.h	/^typedef GeneratorContext OutputDirectory;$/;"	t	namespace:google::protobuf::compiler
@@ -1123,8 +1136,8 @@ Parser	include/google/protobuf/text_format.h	/^  class LIBPROTOBUF_EXPORT Parser
 People	demo.people.pb.cc	/^People::People()$/;"	f	class:demo::People
 People	demo.people.pb.cc	/^People::People(const People& from)$/;"	f	class:demo::People
 People	demo.people.pb.h	/^class People : public ::google::protobuf::Message {$/;"	c	namespace:demo
-People_descriptor_	demo.people.pb.cc	/^const ::google::protobuf::Descriptor* People_descriptor_ = NULL;$/;"	m	namespace:demo::__anon1	file:
-People_reflection_	demo.people.pb.cc	/^  People_reflection_ = NULL;$/;"	m	namespace:demo::__anon1	file:
+People_descriptor_	demo.people.pb.cc	/^const ::google::protobuf::Descriptor* People_descriptor_ = NULL;$/;"	v
+People_reflection_	demo.people.pb.cc	/^  People_reflection_ = NULL;$/;"	v
 Pete	tolua++-1.0.93/src/tests/tclass.h	/^	enum Pete {$/;"	g	class:Test::Tst_E
 Pfunc	include/lua/ldo.h	/^typedef void (*Pfunc) (lua_State *L, void *ud);$/;"	t
 Point	tolua++-1.0.93/src/tests/tarray.h	/^struct Point$/;"	s
@@ -1134,6 +1147,7 @@ Point	tolua++-1.0.93/src/tests/tfunction.h	/^class Point$/;"	c
 PreMmapHook	include/google/malloc_hook.h	/^  typedef MallocHook_PreMmapHook PreMmapHook;$/;"	t	class:MallocHook
 PreSbrkHook	include/google/malloc_hook.h	/^  typedef MallocHook_PreSbrkHook PreSbrkHook;$/;"	t	class:MallocHook
 PrimitiveTypeTraits	include/google/protobuf/extension_set.h	/^class PrimitiveTypeTraits {$/;"	c	namespace:google::protobuf::internal
+PrintPosError	shared/ByteBuffer.h	/^        bool PrintPosError(bool add, size_t pos, size_t esize) const$/;"	f	class:ByteBuffer
 Printer	include/google/protobuf/io/printer.h	/^class LIBPROTOBUF_EXPORT Printer {$/;"	c	namespace:google::protobuf::io
 Printer	include/google/protobuf/text_format.h	/^  class LIBPROTOBUF_EXPORT Printer {$/;"	c	class:google::protobuf::TextFormat
 ProcMapsResult	include/google/heap-checker.h	/^  enum ProcMapsResult {$/;"	g	class:HeapLeakChecker
@@ -1238,7 +1252,7 @@ Run	include/google/protobuf/stubs/common.h	/^  void Run() {$/;"	f	class:google::
 Run	include/google/protobuf/stubs/common.h	/^  void Run() {$/;"	f	class:google::protobuf::internal::MethodClosure2
 SECOND	tolua++-1.0.93/src/tests/tconstant.h	21;"	d
 SECOND	tolua++-1.0.93/src/tests/tconstant.h	2;"	d
-SECOND	tolua++-1.0.93/src/tests/tfunction.h	/^	SECOND = 2$/;"	e	enum:__anon7
+SECOND	tolua++-1.0.93/src/tests/tfunction.h	/^	SECOND = 2$/;"	e	enum:__anon5
 SERIALIZE	include/google/protobuf/wire_format.h	/^    SERIALIZE,$/;"	e	enum:google::protobuf::internal::WireFormat::Operation
 SETARG_A	include/lua/lopcodes.h	85;"	d
 SETARG_B	include/lua/lopcodes.h	89;"	d
@@ -1266,7 +1280,7 @@ SUCCESS	tolua++-1.0.93/src/tests/tfunction.h	/^		SUCCESS = 0,$/;"	e	enum:Point::
 SYMBOLIZE	include/google/heap-checker.h	/^  enum ShouldSymbolize { SYMBOLIZE, DO_NOT_SYMBOLIZE };$/;"	e	enum:HeapLeakChecker::ShouldSymbolize
 SameHeap	include/google/heap-checker.h	/^  bool SameHeap()      { return NoLeaks(); }$/;"	f	class:HeapLeakChecker
 SbrkHook	include/google/malloc_hook.h	/^  typedef MallocHook_SbrkHook SbrkHook;$/;"	t	class:MallocHook
-SemInfo	include/lua/llex.h	/^} SemInfo;  \/* semantics information *\/$/;"	t	typeref:union:__anon22
+SemInfo	include/lua/llex.h	/^} SemInfo;  \/* semantics information *\/$/;"	t	typeref:union:__anon7
 SerializeWithCachedSizes	demo.people.pb.cc	/^void People::SerializeWithCachedSizes($/;"	f	class:demo::People
 SerializeWithCachedSizesToArray	demo.people.pb.cc	/^::google::protobuf::uint8* People::SerializeWithCachedSizesToArray($/;"	f	class:demo::People
 Service	include/google/protobuf/service.h	/^  inline Service() {}$/;"	f	class:google::protobuf::Service
@@ -1295,6 +1309,7 @@ SetMmapHook	include/google/malloc_hook.h	/^  inline static MmapHook SetMmapHook(
 SetMremapHook	include/google/malloc_hook.h	/^  inline static MremapHook SetMremapHook(MremapHook hook) {$/;"	f	class:MallocHook
 SetMunmapHook	include/google/malloc_hook.h	/^  inline static MunmapHook SetMunmapHook(MunmapHook hook) {$/;"	f	class:MallocHook
 SetNewHook	include/google/malloc_hook.h	/^  inline static NewHook SetNewHook(NewHook hook) {$/;"	f	class:MallocHook
+SetOpcode	shared/WorldPacket.h	/^        void SetOpcode(uint16 opcode) { m_opcode = opcode; }$/;"	f	class:WorldPacket
 SetOwnsCopyingStream	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  void SetOwnsCopyingStream(bool value) { owns_copying_stream_ = value; }$/;"	f	class:google::protobuf::io::CopyingInputStreamAdaptor
 SetOwnsCopyingStream	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  void SetOwnsCopyingStream(bool value) { owns_copying_stream_ = value; }$/;"	f	class:google::protobuf::io::CopyingOutputStreamAdaptor
 SetPreMmapHook	include/google/malloc_hook.h	/^  inline static PreMmapHook SetPreMmapHook(PreMmapHook hook) {$/;"	f	class:MallocHook
@@ -1379,27 +1394,26 @@ TK_UNTIL	include/lua/llex.h	/^  TK_RETURN, TK_THEN, TK_TRUE, TK_UNTIL, TK_WHILE,
 TK_WHILE	include/lua/llex.h	/^  TK_RETURN, TK_THEN, TK_TRUE, TK_UNTIL, TK_WHILE,$/;"	e	enum:RESERVED
 TKey	include/lua/lobject.h	/^typedef union TKey {$/;"	u
 TKey	include/lua/lobject.h	/^} TKey;$/;"	t	typeref:union:TKey
-TMS	include/lua/ltm.h	/^} TMS;$/;"	t	typeref:enum:__anon23
-TM_ADD	include/lua/ltm.h	/^  TM_ADD,$/;"	e	enum:__anon23
-TM_CALL	include/lua/ltm.h	/^  TM_CALL,$/;"	e	enum:__anon23
-TM_CONCAT	include/lua/ltm.h	/^  TM_CONCAT,$/;"	e	enum:__anon23
-TM_DIV	include/lua/ltm.h	/^  TM_DIV,$/;"	e	enum:__anon23
-TM_EQ	include/lua/ltm.h	/^  TM_EQ,  \/* last tag method with `fast' access *\/$/;"	e	enum:__anon23
-TM_GC	include/lua/ltm.h	/^  TM_GC,$/;"	e	enum:__anon23
-TM_INDEX	include/lua/ltm.h	/^  TM_INDEX,$/;"	e	enum:__anon23
-TM_LE	include/lua/ltm.h	/^  TM_LE,$/;"	e	enum:__anon23
-TM_LEN	include/lua/ltm.h	/^  TM_LEN,$/;"	e	enum:__anon23
-TM_LT	include/lua/ltm.h	/^  TM_LT,$/;"	e	enum:__anon23
-TM_MOD	include/lua/ltm.h	/^  TM_MOD,$/;"	e	enum:__anon23
-TM_MODE	include/lua/ltm.h	/^  TM_MODE,$/;"	e	enum:__anon23
-TM_MUL	include/lua/ltm.h	/^  TM_MUL,$/;"	e	enum:__anon23
-TM_N	include/lua/ltm.h	/^  TM_N		\/* number of elements in the enum *\/$/;"	e	enum:__anon23
-TM_NEWINDEX	include/lua/ltm.h	/^  TM_NEWINDEX,$/;"	e	enum:__anon23
-TM_POW	include/lua/ltm.h	/^  TM_POW,$/;"	e	enum:__anon23
-TM_SUB	include/lua/ltm.h	/^  TM_SUB,$/;"	e	enum:__anon23
-TM_UNM	include/lua/ltm.h	/^  TM_UNM,$/;"	e	enum:__anon23
+TMS	include/lua/ltm.h	/^} TMS;$/;"	t	typeref:enum:__anon6
+TM_ADD	include/lua/ltm.h	/^  TM_ADD,$/;"	e	enum:__anon6
+TM_CALL	include/lua/ltm.h	/^  TM_CALL,$/;"	e	enum:__anon6
+TM_CONCAT	include/lua/ltm.h	/^  TM_CONCAT,$/;"	e	enum:__anon6
+TM_DIV	include/lua/ltm.h	/^  TM_DIV,$/;"	e	enum:__anon6
+TM_EQ	include/lua/ltm.h	/^  TM_EQ,  \/* last tag method with `fast' access *\/$/;"	e	enum:__anon6
+TM_GC	include/lua/ltm.h	/^  TM_GC,$/;"	e	enum:__anon6
+TM_INDEX	include/lua/ltm.h	/^  TM_INDEX,$/;"	e	enum:__anon6
+TM_LE	include/lua/ltm.h	/^  TM_LE,$/;"	e	enum:__anon6
+TM_LEN	include/lua/ltm.h	/^  TM_LEN,$/;"	e	enum:__anon6
+TM_LT	include/lua/ltm.h	/^  TM_LT,$/;"	e	enum:__anon6
+TM_MOD	include/lua/ltm.h	/^  TM_MOD,$/;"	e	enum:__anon6
+TM_MODE	include/lua/ltm.h	/^  TM_MODE,$/;"	e	enum:__anon6
+TM_MUL	include/lua/ltm.h	/^  TM_MUL,$/;"	e	enum:__anon6
+TM_N	include/lua/ltm.h	/^  TM_N		\/* number of elements in the enum *\/$/;"	e	enum:__anon6
+TM_NEWINDEX	include/lua/ltm.h	/^  TM_NEWINDEX,$/;"	e	enum:__anon6
+TM_POW	include/lua/ltm.h	/^  TM_POW,$/;"	e	enum:__anon6
+TM_SUB	include/lua/ltm.h	/^  TM_SUB,$/;"	e	enum:__anon6
+TM_UNM	include/lua/ltm.h	/^  TM_UNM,$/;"	e	enum:__anon6
 TOKEN_LEN	include/lua/llex.h	17;"	d
-TOLUAPP	tolua++-1.0.93/custom-5.1.py	/^TOLUAPP = 'tolua++5.1'$/;"	v
 TOLUA_API	tolua++-1.0.93/include/tolua++.h	20;"	d
 TOLUA_EVENT_H	tolua++-1.0.93/src/lib/tolua_event.h	16;"	d
 TOLUA_H	tolua++-1.0.93/include/tolua++.h	17;"	d
@@ -1415,8 +1429,8 @@ TValuefields	include/lua/lobject.h	/^    TValuefields;$/;"	m	struct:TKey::__anon
 TValuefields	include/lua/lobject.h	/^  TValuefields;$/;"	m	struct:lua_TValue
 TValuefields	include/lua/lobject.h	71;"	d
 TWO	tolua++-1.0.93/src/tests/tclass.h	/^		TWO,$/;"	e	enum:Test::Tst_E::Pete
-TWO	tolua++-1.0.93/src/tests/tconstant.h	/^	 TWO = 2$/;"	e	enum:A::__anon5
-TWO	tolua++-1.0.93/src/tests/tconstant.h	/^	TWO = 2$/;"	e	enum:__anon3
+TWO	tolua++-1.0.93/src/tests/tconstant.h	/^	 TWO = 2$/;"	e	enum:A::__anon4
+TWO	tolua++-1.0.93/src/tests/tconstant.h	/^	TWO = 2$/;"	e	enum:__anon2
 TYPE	include/google/protobuf/descriptor.h	/^      TYPE,              \/\/ field type$/;"	e	enum:google::protobuf::DescriptorPool::ErrorCollector::ErrorLocation
 TYPE_BOOL	include/google/protobuf/descriptor.h	/^    TYPE_BOOL           = 8,   \/\/ bool, varint on the wire.$/;"	e	enum:google::protobuf::FieldDescriptor::Type
 TYPE_BOOL	include/google/protobuf/descriptor.pb.h	/^  static const Type TYPE_BOOL = FieldDescriptorProto_Type_TYPE_BOOL;$/;"	m	class:google::protobuf::FieldDescriptorProto
@@ -1555,21 +1569,21 @@ VALUEWEAKBIT	include/lua/lgc.h	59;"	d
 VARARG_HASARG	include/lua/lobject.h	257;"	d
 VARARG_ISVARARG	include/lua/lobject.h	258;"	d
 VARARG_NEEDSARG	include/lua/lobject.h	259;"	d
-VCALL	include/lua/lparser.h	/^  VCALL,	\/* info = instruction pc *\/$/;"	e	enum:__anon19
-VFALSE	include/lua/lparser.h	/^  VFALSE,$/;"	e	enum:__anon19
-VGLOBAL	include/lua/lparser.h	/^  VGLOBAL,	\/* info = index of table; aux = index of global name in `k' *\/$/;"	e	enum:__anon19
-VINDEXED	include/lua/lparser.h	/^  VINDEXED,	\/* info = table register; aux = index register (or `k') *\/$/;"	e	enum:__anon19
-VJMP	include/lua/lparser.h	/^  VJMP,		\/* info = instruction pc *\/$/;"	e	enum:__anon19
-VK	include/lua/lparser.h	/^  VK,		\/* info = index of constant in `k' *\/$/;"	e	enum:__anon19
-VKNUM	include/lua/lparser.h	/^  VKNUM,	\/* nval = numerical value *\/$/;"	e	enum:__anon19
-VLOCAL	include/lua/lparser.h	/^  VLOCAL,	\/* info = local register *\/$/;"	e	enum:__anon19
-VNIL	include/lua/lparser.h	/^  VNIL,$/;"	e	enum:__anon19
-VNONRELOC	include/lua/lparser.h	/^  VNONRELOC,	\/* info = result register *\/$/;"	e	enum:__anon19
-VRELOCABLE	include/lua/lparser.h	/^  VRELOCABLE,	\/* info = instruction pc *\/$/;"	e	enum:__anon19
-VTRUE	include/lua/lparser.h	/^  VTRUE,$/;"	e	enum:__anon19
-VUPVAL	include/lua/lparser.h	/^  VUPVAL,       \/* info = index of upvalue in `upvalues' *\/$/;"	e	enum:__anon19
-VVARARG	include/lua/lparser.h	/^  VVARARG	\/* info = instruction pc *\/$/;"	e	enum:__anon19
-VVOID	include/lua/lparser.h	/^  VVOID,	\/* no value *\/$/;"	e	enum:__anon19
+VCALL	include/lua/lparser.h	/^  VCALL,	\/* info = instruction pc *\/$/;"	e	enum:__anon8
+VFALSE	include/lua/lparser.h	/^  VFALSE,$/;"	e	enum:__anon8
+VGLOBAL	include/lua/lparser.h	/^  VGLOBAL,	\/* info = index of table; aux = index of global name in `k' *\/$/;"	e	enum:__anon8
+VINDEXED	include/lua/lparser.h	/^  VINDEXED,	\/* info = table register; aux = index register (or `k') *\/$/;"	e	enum:__anon8
+VJMP	include/lua/lparser.h	/^  VJMP,		\/* info = instruction pc *\/$/;"	e	enum:__anon8
+VK	include/lua/lparser.h	/^  VK,		\/* info = index of constant in `k' *\/$/;"	e	enum:__anon8
+VKNUM	include/lua/lparser.h	/^  VKNUM,	\/* nval = numerical value *\/$/;"	e	enum:__anon8
+VLOCAL	include/lua/lparser.h	/^  VLOCAL,	\/* info = local register *\/$/;"	e	enum:__anon8
+VNIL	include/lua/lparser.h	/^  VNIL,$/;"	e	enum:__anon8
+VNONRELOC	include/lua/lparser.h	/^  VNONRELOC,	\/* info = result register *\/$/;"	e	enum:__anon8
+VRELOCABLE	include/lua/lparser.h	/^  VRELOCABLE,	\/* info = instruction pc *\/$/;"	e	enum:__anon8
+VTRUE	include/lua/lparser.h	/^  VTRUE,$/;"	e	enum:__anon8
+VUPVAL	include/lua/lparser.h	/^  VUPVAL,       \/* info = index of upvalue in `upvalues' *\/$/;"	e	enum:__anon8
+VVARARG	include/lua/lparser.h	/^  VVARARG	\/* info = instruction pc *\/$/;"	e	enum:__anon8
+VVOID	include/lua/lparser.h	/^  VVOID,	\/* no value *\/$/;"	e	enum:__anon8
 ValidationErrorCollector	include/google/protobuf/compiler/importer.h	/^  class LIBPROTOBUF_EXPORT ValidationErrorCollector : public DescriptorPool::ErrorCollector {$/;"	c	class:google::protobuf::compiler::SourceTreeDescriptorDatabase
 Value	include/lua/lobject.h	/^} Value;$/;"	t	typeref:union:__anon12
 Variable 	tolua++-1.0.93/src/bin/lua/variable.lua	/^function Variable (s)$/;"	f
@@ -1592,6 +1606,10 @@ WireType	include/google/protobuf/wire_format_lite.h	/^  enum WireType {$/;"	g	cl
 WireTypeForField	include/google/protobuf/wire_format.h	/^inline WireFormatLite::WireType WireFormat::WireTypeForField($/;"	f	class:google::protobuf::internal::WireFormat
 WireTypeForFieldType	include/google/protobuf/wire_format.h	/^inline WireFormatLite::WireType WireFormat::WireTypeForFieldType($/;"	f	class:google::protobuf::internal::WireFormat
 WireTypeForFieldType	include/google/protobuf/wire_format_lite.h	/^  static inline WireFormatLite::WireType WireTypeForFieldType($/;"	f	class:google::protobuf::internal::WireFormatLite
+WorldPacket	shared/WorldPacket.h	/^        WorldPacket()                                       : ByteBuffer(0), m_opcode(0)$/;"	f	class:WorldPacket
+WorldPacket	shared/WorldPacket.h	/^        WorldPacket(const WorldPacket &packet)              : ByteBuffer(packet), m_opcode(packet.m_opcode)$/;"	f	class:WorldPacket
+WorldPacket	shared/WorldPacket.h	/^        explicit WorldPacket(uint16 opcode, size_t res=200) : ByteBuffer(res), m_opcode(opcode) { }$/;"	f	class:WorldPacket
+WorldPacket	shared/WorldPacket.h	/^class WorldPacket : public ByteBuffer$/;"	c
 WriteBoolNoTag	include/google/protobuf/wire_format_lite_inl.h	/^inline void WireFormatLite::WriteBoolNoTag(bool value,$/;"	f	class:google::protobuf::internal::WireFormatLite
 WriteBoolNoTagToArray	include/google/protobuf/wire_format_lite_inl.h	/^inline uint8* WireFormatLite::WriteBoolNoTagToArray(bool value,$/;"	f	class:google::protobuf::internal::WireFormatLite
 WriteBoolToArray	include/google/protobuf/wire_format_lite_inl.h	/^inline uint8* WireFormatLite::WriteBoolToArray(int field_number,$/;"	f	class:google::protobuf::internal::WireFormatLite
@@ -1737,6 +1755,7 @@ ZlibErrorMessage	include/google/protobuf/io/gzip_stream.h	/^  inline const char*
 [t] or search_base	tolua++-1.0.93/src/bin/lua/basic.lua	/^	return _push_functions[t] or search_base(t, _base_push_functions) or "tolua_pushusertype"$/;"	f
 [t] or search_base	tolua++-1.0.93/src/bin/lua/basic.lua	/^	return _to_functions[t] or search_base(t, _base_to_functions) or "tolua_tousertype"$/;"	f
 _Array 	tolua++-1.0.93/src/bin/lua/array.lua	/^function _Array (t)$/;"	f
+_BYTEBUFFER_H	shared/ByteBuffer.h	2;"	d
 _Class 	tolua++-1.0.93/src/bin/lua/class.lua	/^function _Class (t)$/;"	f
 _Code 	tolua++-1.0.93/src/bin/lua/code.lua	/^function _Code (t)$/;"	f
 _Container 	tolua++-1.0.93/src/bin/lua/container.lua	/^function _Container (self)$/;"	f
@@ -1820,8 +1839,10 @@ _has_bits_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf::uint3
 _is_functions 	tolua++-1.0.93/src/bin/lua/basic.lua	/^_is_functions = {}$/;"	f
 _path_cached_byte_size_	include/google/protobuf/descriptor.pb.h	/^  mutable int _path_cached_byte_size_;$/;"	m	class:google::protobuf::SourceCodeInfo_Location
 _push_functions 	tolua++-1.0.93/src/bin/lua/basic.lua	/^_push_functions = {}$/;"	f
+_rpos	shared/ByteBuffer.h	/^        size_t _rpos, _wpos;$/;"	m	class:ByteBuffer
 _set 	tolua++-1.0.93/src/bin/lua/variable.lua	/^ _set = {},   -- mapped set functions$/;"	f
 _span_cached_byte_size_	include/google/protobuf/descriptor.pb.h	/^  mutable int _span_cached_byte_size_;$/;"	m	class:google::protobuf::SourceCodeInfo_Location
+_storage	shared/ByteBuffer.h	/^        std::vector<uint8> _storage;$/;"	m	class:ByteBuffer
 _to_functions 	tolua++-1.0.93/src/bin/lua/basic.lua	/^_to_functions = {}$/;"	f
 _unknown_fields_	demo.people.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:demo::People
 _unknown_fields_	include/google/protobuf/compiler/plugin.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:google::protobuf::compiler::CodeGeneratorRequest
@@ -1847,6 +1868,7 @@ _unknown_fields_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf:
 _unknown_fields_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:google::protobuf::SourceCodeInfo_Location
 _unknown_fields_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:google::protobuf::UninterpretedOption
 _unknown_fields_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf::UnknownFieldSet _unknown_fields_;$/;"	m	class:google::protobuf::UninterpretedOption_NamePart
+_wpos	shared/ByteBuffer.h	/^        size_t _rpos, _wpos;$/;"	m	class:ByteBuffer
 a	tolua++-1.0.93/src/tests/tarray.c	/^int a[10] = {1,2,3,4,5,6,7,8,9,10};$/;"	v
 a	tolua++-1.0.93/src/tests/tarray.h	/^ int a[10];$/;"	m	struct:Array
 a	tolua++-1.0.93/src/tests/tclass.h	/^	Tst_A a;$/;"	m	class:Test::Tst_E
@@ -1907,7 +1929,13 @@ allow_unknown_	include/google/protobuf/descriptor.h	/^  bool allow_unknown_;$/;"
 allowhook	include/lua/lstate.h	/^  lu_byte allowhook;$/;"	m	struct:lua_State
 api_check	include/lua/llimits.h	58;"	d
 api_check	include/lua/llimits.h	64;"	d
+append	shared/ByteBuffer.h	/^        template <typename T> void append(T value)$/;"	f	class:ByteBuffer
+append	shared/ByteBuffer.h	/^        void append(const ByteBuffer& buffer)$/;"	f	class:ByteBuffer
+append	shared/ByteBuffer.h	/^        void append(const char *src, size_t cnt)$/;"	f	class:ByteBuffer
+append	shared/ByteBuffer.h	/^        void append(const std::string& str)$/;"	f	class:ByteBuffer
+append	shared/ByteBuffer.h	/^        void append(const uint8 *src, size_t cnt)$/;"	f	class:ByteBuffer
 append 	tolua++-1.0.93/src/bin/lua/container.lua	/^function append (t)$/;"	f
+appendPackGUID	shared/ByteBuffer.h	/^        void appendPackGUID(uint64 guid)$/;"	f	class:ByteBuffer
 append_class_type	tolua++-1.0.93/src/bin/lua/container.lua	/^function append_class_type(t,class)$/;"	f
 append_global_type	tolua++-1.0.93/src/bin/lua/container.lua	/^function append_global_type(t, class)$/;"	f
 appendenum 	tolua++-1.0.93/src/bin/lua/container.lua	/^function appendenum (t)$/;"	f
@@ -1932,7 +1960,7 @@ asin 	tolua++-1.0.93/src/bin/lua/compat.lua	/^asin = function (x) return math.de
 at_start_of_line_	include/google/protobuf/io/printer.h	/^  bool at_start_of_line_;$/;"	m	class:google::protobuf::io::Printer
 atan 	tolua++-1.0.93/src/bin/lua/compat.lua	/^atan = function (x) return math.deg(math.atan(x)) end$/;"	f
 atan2 	tolua++-1.0.93/src/bin/lua/compat.lua	/^atan2 = function (x,y) return math.deg(math.atan2(x,y)) end$/;"	f
-aux	include/lua/lparser.h	/^    struct { int info, aux; } s;$/;"	m	struct:expdesc::__anon20::__anon21
+aux	include/lua/lparser.h	/^    struct { int info, aux; } s;$/;"	m	struct:expdesc::__anon9::__anon10
 availability	tolua++-1.0.93/doc/tolua++.html	/^<A NAME="availability"><\/A><B>Availability<\/B><\/H3>$/;"	a
 average	tolua++-1.0.93/src/tests/tfunction.h	/^inline	Point average (int n, Point v[])$/;"	f
 averagepointer	tolua++-1.0.93/src/tests/tfunction.h	/^inline	Point averagepointer (int n, Point* v[])$/;"	f
@@ -1960,7 +1988,7 @@ bitmask	include/lua/lgc.h	30;"	d
 bl	include/lua/lparser.h	/^  struct BlockCnt *bl;  \/* chain of current blocks *\/$/;"	m	struct:FuncState	typeref:struct:FuncState::BlockCnt
 block_size_	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  const int block_size_;     \/\/ How many bytes to return at a time.$/;"	m	class:google::protobuf::io::ArrayInputStream
 block_size_	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  const int block_size_;     \/\/ How many bytes to return at a time.$/;"	m	class:google::protobuf::io::ArrayOutputStream
-bool_value	include/google/protobuf/extension_set.h	/^      bool         bool_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+bool_value	include/google/protobuf/extension_set.h	/^      bool         bool_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 break_template	tolua++-1.0.93/src/bin/lua/declaration.lua	/^function break_template(s)$/;"	f
 buff	include/lua/llex.h	/^  Mbuffer *buff;  \/* buffer for tokens *\/$/;"	m	struct:LexState
 buff	include/lua/lstate.h	/^  Mbuffer buff;  \/* temporary buffer for string concatentation *\/$/;"	m	struct:global_State
@@ -2119,6 +2147,7 @@ class_sub_event	tolua++-1.0.93/src/lib/tolua_event.c	/^static int class_sub_even
 classes	tolua++-1.0.93/doc/tolua++.html	/^<A NAME="classes"><\/A>Binding classes and methods<\/H3>$/;"	a
 clean 	tolua++-1.0.93/src/bin/lua/clean.lua	/^function clean (s)$/;"	f
 clean_template	tolua++-1.0.93/src/bin/lua/feature.lua	/^function clean_template(t)$/;"	f
+clear	shared/ByteBuffer.h	/^        void clear()$/;"	f	class:ByteBuffer
 clear_aggregate_value	include/google/protobuf/descriptor.pb.h	/^inline void UninterpretedOption::clear_aggregate_value() {$/;"	f	class:google::protobuf::UninterpretedOption
 clear_cc_generic_services	include/google/protobuf/descriptor.pb.h	/^inline void FileOptions::clear_cc_generic_services() {$/;"	f	class:google::protobuf::FileOptions
 clear_content	include/google/protobuf/compiler/plugin.pb.h	/^inline void CodeGeneratorResponse_File::clear_content() {$/;"	f	class:google::protobuf::compiler::CodeGeneratorResponse_File
@@ -2297,8 +2326,9 @@ containing_type_	include/google/protobuf/descriptor.h	/^  const Descriptor* cont
 containing_type_	include/google/protobuf/descriptor.h	/^  const Descriptor* containing_type_;$/;"	m	class:google::protobuf::FieldDescriptor
 containing_type_	include/google/protobuf/extension_set.h	/^  const MessageLite* containing_type_;$/;"	m	class:google::protobuf::internal::GeneratedExtensionFinder
 content	include/google/protobuf/compiler/plugin.pb.h	/^inline const ::std::string& CodeGeneratorResponse_File::content() const {$/;"	f	class:google::protobuf::compiler::CodeGeneratorResponse_File
-content	include/zmq.h	/^    void *content;$/;"	m	struct:__anon24
+content	include/zmq.h	/^    void *content;$/;"	m	struct:__anon22
 content_	include/google/protobuf/compiler/plugin.pb.h	/^  ::std::string* content_;$/;"	m	class:google::protobuf::compiler::CodeGeneratorResponse_File
+contents	shared/ByteBuffer.h	/^        const uint8 *contents() const { return &_storage[0]; }$/;"	f	class:ByteBuffer
 context_t	include/zmq.hpp	/^        inline context_t (int io_threads_)$/;"	f	class:zmq::context_t
 context_t	include/zmq.hpp	/^    class context_t$/;"	c	namespace:zmq
 copy	include/zmq.hpp	/^        inline void copy (message_t *msg_)$/;"	f	class:zmq::message_t
@@ -2373,15 +2403,15 @@ default_value	include/google/protobuf/descriptor.pb.h	/^inline const ::std::stri
 default_value	include/google/protobuf/extension_set.h	/^  typename TypeTraits::ConstType default_value() const {$/;"	f	class:google::protobuf::internal::ExtensionIdentifier
 default_value_	include/google/protobuf/descriptor.pb.h	/^  ::std::string* default_value_;$/;"	m	class:google::protobuf::FieldDescriptorProto
 default_value_	include/google/protobuf/extension_set.h	/^  typename TypeTraits::ConstType default_value_;$/;"	m	class:google::protobuf::internal::ExtensionIdentifier
-default_value_bool_	include/google/protobuf/descriptor.h	/^    bool   default_value_bool_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_double_	include/google/protobuf/descriptor.h	/^    double default_value_double_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_enum_	include/google/protobuf/descriptor.h	/^    const EnumValueDescriptor* default_value_enum_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_float_	include/google/protobuf/descriptor.h	/^    float  default_value_float_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_int32_	include/google/protobuf/descriptor.h	/^    int32  default_value_int32_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_int64_	include/google/protobuf/descriptor.h	/^    int64  default_value_int64_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_string_	include/google/protobuf/descriptor.h	/^    const string* default_value_string_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_uint32_	include/google/protobuf/descriptor.h	/^    uint32 default_value_uint32_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
-default_value_uint64_	include/google/protobuf/descriptor.h	/^    uint64 default_value_uint64_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon9
+default_value_bool_	include/google/protobuf/descriptor.h	/^    bool   default_value_bool_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_double_	include/google/protobuf/descriptor.h	/^    double default_value_double_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_enum_	include/google/protobuf/descriptor.h	/^    const EnumValueDescriptor* default_value_enum_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_float_	include/google/protobuf/descriptor.h	/^    float  default_value_float_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_int32_	include/google/protobuf/descriptor.h	/^    int32  default_value_int32_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_int64_	include/google/protobuf/descriptor.h	/^    int64  default_value_int64_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_string_	include/google/protobuf/descriptor.h	/^    const string* default_value_string_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_uint32_	include/google/protobuf/descriptor.h	/^    uint32 default_value_uint32_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
+default_value_uint64_	include/google/protobuf/descriptor.h	/^    uint64 default_value_uint64_;$/;"	m	union:google::protobuf::FieldDescriptor::__anon19
 delegate_to_generated_factory_	include/google/protobuf/dynamic_message.h	/^  bool delegate_to_generated_factory_;$/;"	m	class:google::protobuf::DynamicMessageFactory
 demo	demo.people.pb.cc	/^namespace demo {$/;"	n	file:
 demo	demo.people.pb.h	/^namespace demo {$/;"	n
@@ -2417,7 +2447,7 @@ documentation	tolua++-1.0.93/doc/index.html	/^<a name="documentation"><\/a>$/;"	
 doit 	tolua++-1.0.93/src/bin/lua/doit.lua	/^function doit ()$/;"	f
 dostring	tolua++-1.0.93/src/bin/lua/compat.lua	/^function dostring(s) return do_(loadstring(s)) end$/;"	f
 double_value	include/google/protobuf/descriptor.pb.h	/^inline double UninterpretedOption::double_value() const {$/;"	f	class:google::protobuf::UninterpretedOption
-double_value	include/google/protobuf/extension_set.h	/^      double       double_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+double_value	include/google/protobuf/extension_set.h	/^      double       double_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 double_value_	include/google/protobuf/descriptor.pb.h	/^  double double_value_;$/;"	m	class:google::protobuf::UninterpretedOption
 down_cast	include/google/protobuf/stubs/common.h	/^inline To down_cast(From* f) {                   \/\/ so we only accept pointers$/;"	f	namespace:google::protobuf::internal
 download	tolua++-1.0.93/doc/index.html	/^<a name="download"><\/a>$/;"	a
@@ -2433,6 +2463,7 @@ email	demo.people.pb.h	/^inline const ::std::string& People::email() const {$/;"
 email_	demo.people.pb.h	/^  ::std::string* email_;$/;"	m	class:demo::People
 embedded	tolua++-1.0.93/doc/tolua++.html	/^<A NAME="embedded"><\/A>Embedded Lua code<\/H3>$/;"	a
 empty	include/google/protobuf/unknown_field_set.h	/^inline bool UnknownFieldSet::empty() const {$/;"	f	class:google::protobuf::UnknownFieldSet
+empty	shared/ByteBuffer.h	/^        bool empty() const { return _storage.empty(); }$/;"	f	class:ByteBuffer
 enabled	include/google/profiler.h	/^  int    enabled;             \/* Is profiling currently enabled? *\/$/;"	m	struct:ProfilerState
 end	include/google/protobuf/descriptor.h	/^    int end;    \/\/ exclusive$/;"	m	struct:google::protobuf::Descriptor::ExtensionRange
 end	include/google/protobuf/descriptor.pb.h	/^inline ::google::protobuf::int32 DescriptorProto_ExtensionRange::end() const {$/;"	f	class:google::protobuf::DescriptorProto_ExtensionRange
@@ -2458,8 +2489,8 @@ enum_type_size	include/google/protobuf/descriptor.pb.h	/^inline int DescriptorPr
 enum_type_size	include/google/protobuf/descriptor.pb.h	/^inline int FileDescriptorProto::enum_type_size() const {$/;"	f	class:google::protobuf::FileDescriptorProto
 enum_types_	include/google/protobuf/descriptor.h	/^  EnumDescriptor* enum_types_;$/;"	m	class:google::protobuf::Descriptor
 enum_types_	include/google/protobuf/descriptor.h	/^  EnumDescriptor* enum_types_;$/;"	m	class:google::protobuf::FileDescriptor
-enum_validity_check	include/google/protobuf/extension_set.h	/^    EnumValidityCheck enum_validity_check;$/;"	m	union:google::protobuf::internal::ExtensionInfo::__anon10
-enum_value	include/google/protobuf/extension_set.h	/^      int          enum_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+enum_validity_check	include/google/protobuf/extension_set.h	/^    EnumValidityCheck enum_validity_check;$/;"	m	union:google::protobuf::internal::ExtensionInfo::__anon20
+enum_value	include/google/protobuf/extension_set.h	/^      int          enum_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 env	include/lua/lobject.h	/^    struct Table *env;$/;"	m	struct:Udata::__anon14	typeref:struct:Udata::__anon14::Table
 env	include/lua/lstate.h	/^  TValue env;  \/* temporary place for environments *\/$/;"	m	struct:lua_State
 equalobj	include/lua/lvm.h	21;"	d
@@ -2480,14 +2511,14 @@ error_t	include/zmq.hpp	/^        error_t () : errnum (zmq_errno ()) {}$/;"	f	cl
 error_t	include/zmq.hpp	/^    class error_t : public std::exception$/;"	c	namespace:zmq
 estimate	include/lua/lstate.h	/^  lu_mem estimate;  \/* an estimate of number of bytes actually in use *\/$/;"	m	struct:global_State
 event	include/lua/lua.h	/^  int event;$/;"	m	struct:lua_Debug
-events	include/zmq.h	/^    short events;$/;"	m	struct:__anon25
+events	include/zmq.h	/^    short events;$/;"	m	struct:__anon23
 executable_name_	include/google/protobuf/compiler/command_line_interface.h	/^  string executable_name_;$/;"	m	class:google::protobuf::compiler::CommandLineInterface
 expdesc	include/lua/lparser.h	/^typedef struct expdesc {$/;"	s
 expdesc	include/lua/lparser.h	/^} expdesc;$/;"	t	typeref:struct:expdesc
 experimental_map_key	include/google/protobuf/descriptor.pb.h	/^inline const ::std::string& FieldOptions::experimental_map_key() const {$/;"	f	class:google::protobuf::FieldOptions
 experimental_map_key_	include/google/protobuf/descriptor.h	/^  const FieldDescriptor* experimental_map_key_;$/;"	m	class:google::protobuf::FieldDescriptor
 experimental_map_key_	include/google/protobuf/descriptor.pb.h	/^  ::std::string* experimental_map_key_;$/;"	m	class:google::protobuf::FieldOptions
-expkind	include/lua/lparser.h	/^} expkind;$/;"	t	typeref:enum:__anon19
+expkind	include/lua/lparser.h	/^} expkind;$/;"	t	typeref:enum:__anon8
 extendee	include/google/protobuf/descriptor.pb.h	/^inline const ::std::string& FieldDescriptorProto::extendee() const {$/;"	f	class:google::protobuf::FieldDescriptorProto
 extendee_	include/google/protobuf/descriptor.pb.h	/^  ::std::string* extendee_;$/;"	m	class:google::protobuf::FieldDescriptorProto
 extension	include/google/protobuf/descriptor.pb.h	/^DescriptorProto::extension() const {$/;"	f	class:google::protobuf::DescriptorProto
@@ -2528,8 +2559,8 @@ failed_	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  bool failed_
 failed_	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  bool failed_;$/;"	m	class:google::protobuf::io::CopyingOutputStreamAdaptor
 fallback_database_	include/google/protobuf/descriptor.h	/^  DescriptorDatabase* fallback_database_;$/;"	m	class:google::protobuf::DescriptorPool
 fasttm	include/lua/ltm.h	44;"	d
-fd	include/zmq.h	/^    SOCKET fd;$/;"	m	struct:__anon25
-fd	include/zmq.h	/^    int fd;$/;"	m	struct:__anon25
+fd	include/zmq.h	/^    SOCKET fd;$/;"	m	struct:__anon23
+fd	include/zmq.h	/^    int fd;$/;"	m	struct:__anon23
 field	include/google/protobuf/descriptor.pb.h	/^DescriptorProto::field() const {$/;"	f	class:google::protobuf::DescriptorProto
 field	include/google/protobuf/descriptor.pb.h	/^inline const ::google::protobuf::FieldDescriptorProto& DescriptorProto::field(int index) const {$/;"	f	class:google::protobuf::DescriptorProto
 field	include/google/protobuf/unknown_field_set.h	/^inline const UnknownField& UnknownFieldSet::field(int index) const {$/;"	f	class:google::protobuf::UnknownFieldSet
@@ -2576,12 +2607,12 @@ finder_	include/google/protobuf/text_format.h	/^    Finder* finder_;$/;"	m	class
 findtype 	tolua++-1.0.93/src/bin/lua/container.lua	/^function findtype (type)$/;"	f
 findtype_on_childs	tolua++-1.0.93/src/bin/lua/container.lua	/^function findtype_on_childs(self, t)$/;"	f
 fixed32	include/google/protobuf/unknown_field_set.h	/^inline uint32 UnknownField::fixed32() const {$/;"	f	class:google::protobuf::UnknownField
-fixed32_	include/google/protobuf/unknown_field_set.h	/^    uint32 fixed32_;$/;"	m	union:google::protobuf::UnknownField::__anon8
+fixed32_	include/google/protobuf/unknown_field_set.h	/^    uint32 fixed32_;$/;"	m	union:google::protobuf::UnknownField::__anon18
 fixed64	include/google/protobuf/unknown_field_set.h	/^inline uint64 UnknownField::fixed64() const {$/;"	f	class:google::protobuf::UnknownField
-fixed64_	include/google/protobuf/unknown_field_set.h	/^    uint64 fixed64_;$/;"	m	union:google::protobuf::UnknownField::__anon8
+fixed64_	include/google/protobuf/unknown_field_set.h	/^    uint64 fixed64_;$/;"	m	union:google::protobuf::UnknownField::__anon18
 flags	include/lua/lobject.h	/^  lu_byte flags;  \/* 1<<p means tagmethod(p) is not present *\/ $/;"	m	struct:Table
-flags	include/zmq.h	/^    unsigned char flags;$/;"	m	struct:__anon24
-float_value	include/google/protobuf/extension_set.h	/^      float        float_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+flags	include/zmq.h	/^    unsigned char flags;$/;"	m	struct:__anon22
+float_value	include/google/protobuf/extension_set.h	/^      float        float_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 flush 	tolua++-1.0.93/src/bin/lua/compat.lua	/^function flush (f)$/;"	f
 format	include/google/protobuf/io/gzip_stream.h	/^    Format format;$/;"	m	struct:google::protobuf::io::GzipOutputStream::Options
 format_	include/google/protobuf/io/gzip_stream.h	/^  Format format_;$/;"	m	class:google::protobuf::io::GzipInputStream
@@ -2646,6 +2677,7 @@ get_ptr	tolua++-1.0.93/src/tests/tclass.h	/^	void* get_ptr() {return ptr;};$/;"	
 get_push_function	tolua++-1.0.93/src/bin/lua/basic.lua	/^function get_push_function(t)$/;"	f
 get_socket_type	zeromq_shell.cc	/^int get_socket_type(const char *str) {$/;"	f
 get_t	tolua++-1.0.93/src/tests/tclass.h	/^	T get_t() {T a=0; return a;};$/;"	f	class:Test::Tst_E
+get_table_field_ref	lua_server.cc	/^int LuaServer::get_table_field_ref( const char *_table, const char *_field, int _ref, int _index )$/;"	f	class:LuaServer
 get_to_function	tolua++-1.0.93/src/bin/lua/basic.lua	/^function get_to_function(t)$/;"	f
 getcode	include/lua/lcode.h	39;"	d
 getcolor	tolua++-1.0.93/src/tests/tfunction.h	/^ virtual void getcolor (float* red, float *green, float *blue) const$/;"	f	class:ColorPoint
@@ -2708,7 +2740,7 @@ gray	include/lua/lstate.h	/^  GCObject *gray;  \/* list of gray objects *\/$/;"	
 gray2black	include/lua/lgc.h	73;"	d
 grayagain	include/lua/lstate.h	/^  GCObject *grayagain;  \/* list of objects to be traversed atomically *\/$/;"	m	struct:global_State
 group	include/google/protobuf/unknown_field_set.h	/^inline const UnknownFieldSet& UnknownField::group() const {$/;"	f	class:google::protobuf::UnknownField
-group_	include/google/protobuf/unknown_field_set.h	/^    UnknownFieldSet* group_;$/;"	m	union:google::protobuf::UnknownField::__anon8
+group_	include/google/protobuf/unknown_field_set.h	/^    UnknownFieldSet* group_;$/;"	m	union:google::protobuf::UnknownField::__anon18
 gt	include/lua/lstate.h	22;"	d
 gval	include/lua/ltable.h	15;"	d
 h	include/lua/lparser.h	/^  Table *h;  \/* table to find (and reuse) elements in `k' *\/$/;"	m	struct:FuncState
@@ -2781,7 +2813,9 @@ heap_cleanups_	include/google/heap-checker.h	/^  static std::vector<void_functio
 hello	tolua++-1.0.93/src/tests/tclass.lua	/^function hello()$/;"	f
 help	tolua++-1.0.93/src/bin/tolua.c	/^static void help (void)$/;"	f	file:
 help_text	include/google/protobuf/compiler/command_line_interface.h	/^    string help_text;$/;"	m	struct:google::protobuf::compiler::CommandLineInterface::GeneratorInfo
+hexlike	shared/ByteBuffer.h	/^        void hexlike()$/;"	f	class:ByteBuffer
 hook	include/lua/lstate.h	/^  lua_Hook hook;$/;"	m	struct:lua_State
+hook_lua_err	lua_server.cc	/^int LuaServer::hook_lua_err( lua_State *_L )$/;"	f	class:LuaServer
 hookcount	include/lua/lstate.h	/^  int hookcount;$/;"	m	struct:lua_State
 hookmask	include/lua/lstate.h	/^  lu_byte hookmask;$/;"	m	struct:lua_State
 hvalue	include/lua/lobject.h	99;"	d
@@ -2820,7 +2854,7 @@ index	include/google/protobuf/descriptor.h	/^inline int ServiceDescriptor::index
 index	tolua++-1.0.93/include/tolua++.h	/^	int index;$/;"	m	struct:tolua_Error
 index_	include/google/protobuf/descriptor_database.h	/^  DescriptorIndex<const FileDescriptorProto*> index_;$/;"	m	class:google::protobuf::SimpleDescriptorDatabase
 index_	include/google/protobuf/descriptor_database.h	/^  SimpleDescriptorDatabase::DescriptorIndex<pair<const void*, int> > index_;$/;"	m	class:google::protobuf::EncodedDescriptorDatabase
-info	include/lua/lparser.h	/^    struct { int info, aux; } s;$/;"	m	struct:expdesc::__anon20::__anon21
+info	include/lua/lparser.h	/^    struct { int info, aux; } s;$/;"	m	struct:expdesc::__anon9::__anon10
 info	include/lua/lparser.h	/^  lu_byte info;$/;"	m	struct:upvaldesc
 initial_indent_level_	include/google/protobuf/text_format.h	/^    int initial_indent_level_;$/;"	m	class:google::protobuf::TextFormat::Printer
 initial_space_	include/google/protobuf/repeated_field.h	/^  Element  initial_space_[kInitialSize];$/;"	m	class:google::protobuf::RepeatedField
@@ -2847,10 +2881,10 @@ int16	include/google/protobuf/stubs/common.h	/^typedef __int16 int16;$/;"	t	name
 int16	include/google/protobuf/stubs/common.h	/^typedef int16_t int16;$/;"	t	namespace:google::protobuf
 int32	include/google/protobuf/stubs/common.h	/^typedef __int32 int32;$/;"	t	namespace:google::protobuf
 int32	include/google/protobuf/stubs/common.h	/^typedef int32_t int32;$/;"	t	namespace:google::protobuf
-int32_value	include/google/protobuf/extension_set.h	/^      int32        int32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+int32_value	include/google/protobuf/extension_set.h	/^      int32        int32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 int64	include/google/protobuf/stubs/common.h	/^typedef __int64 int64;$/;"	t	namespace:google::protobuf
 int64	include/google/protobuf/stubs/common.h	/^typedef int64_t int64;$/;"	t	namespace:google::protobuf
-int64_value	include/google/protobuf/extension_set.h	/^      int64        int64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+int64_value	include/google/protobuf/extension_set.h	/^      int64        int64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 int8	include/google/protobuf/stubs/common.h	/^typedef __int8  int8;$/;"	t	namespace:google::protobuf
 int8	include/google/protobuf/stubs/common.h	/^typedef int8_t  int8;$/;"	t	namespace:google::protobuf
 internal	include/google/protobuf/extension_set.h	/^  namespace internal {$/;"	n	namespace:google::protobuf
@@ -3002,8 +3036,8 @@ kMessageSetTypeIdTag	include/google/protobuf/wire_format_lite.h	/^  static const
 kMessageSetWireFormatFieldNumber	include/google/protobuf/descriptor.pb.h	/^  static const int kMessageSetWireFormatFieldNumber = 1;$/;"	m	class:google::protobuf::MessageOptions
 kMessageTypeFieldNumber	include/google/protobuf/descriptor.pb.h	/^  static const int kMessageTypeFieldNumber = 4;$/;"	m	class:google::protobuf::FileDescriptorProto
 kMethodFieldNumber	include/google/protobuf/descriptor.pb.h	/^  static const int kMethodFieldNumber = 2;$/;"	m	class:google::protobuf::ServiceDescriptorProto
-kMinHeaderVersionForLibrary	include/google/protobuf/stubs/common.h	/^static const int kMinHeaderVersionForLibrary = 2004000;$/;"	m	namespace:google::protobuf::internal
-kMinHeaderVersionForProtoc	include/google/protobuf/stubs/common.h	/^static const int kMinHeaderVersionForProtoc = 2004000;$/;"	m	namespace:google::protobuf::internal
+kMinHeaderVersionForLibrary	include/google/protobuf/stubs/common.h	/^static const int kMinHeaderVersionForLibrary = 2004000;$/;"	v
+kMinHeaderVersionForProtoc	include/google/protobuf/stubs/common.h	/^static const int kMinHeaderVersionForProtoc = 2004000;$/;"	v
 kMinimumSize	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  static const int kMinimumSize = 16;$/;"	m	class:google::protobuf::io::StringOutputStream
 kNameFieldNumber	demo.people.pb.cc	/^const int People::kNameFieldNumber;$/;"	m	class:demo::People	file:
 kNameFieldNumber	demo.people.pb.h	/^  static const int kNameFieldNumber = 1;$/;"	m	class:demo::People
@@ -3063,12 +3097,12 @@ kValueFieldNumber	include/google/protobuf/descriptor.pb.h	/^  static const int k
 kWireTypeForFieldType	include/google/protobuf/wire_format_lite.h	/^  static const WireFormatLite::WireType kWireTypeForFieldType[];$/;"	m	class:google::protobuf::internal::WireFormatLite
 keep_profiles_	include/google/heap-checker.h	/^  bool keep_profiles_;  \/\/ iff we should keep the heap profiles we've made$/;"	m	class:HeapLeakChecker
 key2tval	include/lua/ltable.h	18;"	d
-kint32max	include/google/protobuf/stubs/common.h	/^static const int32 kint32max = 0x7FFFFFFF;$/;"	m	namespace:google::protobuf
-kint32min	include/google/protobuf/stubs/common.h	/^static const int32 kint32min = -kint32max - 1;$/;"	m	namespace:google::protobuf
-kint64max	include/google/protobuf/stubs/common.h	/^static const int64 kint64max = GOOGLE_LONGLONG(0x7FFFFFFFFFFFFFFF);$/;"	m	namespace:google::protobuf
-kint64min	include/google/protobuf/stubs/common.h	/^static const int64 kint64min = -kint64max - 1;$/;"	m	namespace:google::protobuf
-kuint32max	include/google/protobuf/stubs/common.h	/^static const uint32 kuint32max = 0xFFFFFFFFu;$/;"	m	namespace:google::protobuf
-kuint64max	include/google/protobuf/stubs/common.h	/^static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);$/;"	m	namespace:google::protobuf
+kint32max	include/google/protobuf/stubs/common.h	/^static const int32 kint32max = 0x7FFFFFFF;$/;"	v
+kint32min	include/google/protobuf/stubs/common.h	/^static const int32 kint32min = -kint32max - 1;$/;"	v
+kint64max	include/google/protobuf/stubs/common.h	/^static const int64 kint64max = GOOGLE_LONGLONG(0x7FFFFFFFFFFFFFFF);$/;"	v
+kint64min	include/google/protobuf/stubs/common.h	/^static const int64 kint64min = -kint64max - 1;$/;"	v
+kuint32max	include/google/protobuf/stubs/common.h	/^static const uint32 kuint32max = 0xFFFFFFFFu;$/;"	v
+kuint64max	include/google/protobuf/stubs/common.h	/^static const uint64 kuint64max = GOOGLE_ULONGLONG(0xFFFFFFFFFFFFFFFF);$/;"	v
 l	include/lua/lobject.h	/^    } l;$/;"	m	union:UpVal::__anon15	typeref:struct:UpVal::__anon15::__anon16
 l	include/lua/lobject.h	/^  LClosure l;$/;"	m	union:Closure
 l_G	include/lua/lstate.h	/^  global_State *l_G;$/;"	m	struct:lua_State
@@ -3105,7 +3139,7 @@ len	include/lua/lobject.h	/^    size_t len;$/;"	m	struct:TString::__anon13
 len	include/lua/lobject.h	/^    size_t len;$/;"	m	struct:Udata::__anon14
 length	include/google/malloc_extension.h	/^  size_t length;        \/\/ Byte length of range$/;"	m	struct:base::MallocRange
 length_delimited	include/google/protobuf/unknown_field_set.h	/^inline const string& UnknownField::length_delimited() const {$/;"	f	class:google::protobuf::UnknownField
-length_delimited_	include/google/protobuf/unknown_field_set.h	/^    string* length_delimited_;$/;"	m	union:google::protobuf::UnknownField::__anon8
+length_delimited_	include/google/protobuf/unknown_field_set.h	/^    string* length_delimited_;$/;"	m	union:google::protobuf::UnknownField::__anon18
 level_	include/google/protobuf/stubs/common.h	/^  LogLevel level_;$/;"	m	class:google::protobuf::internal::LogMessage
 lfunc_h	include/lua/lfunc.h	8;"	d
 lgc_h	include/lua/lgc.h	8;"	d
@@ -3240,6 +3274,7 @@ lua_TValue	include/lua/lobject.h	/^typedef struct lua_TValue {$/;"	s
 lua_Writer	include/lua/lua.h	/^typedef int (*lua_Writer) (lua_State *L, const void* p, size_t sz, void* ud);$/;"	t
 lua_assert	include/lua/llimits.h	62;"	d
 lua_assert	include/lua/lualib.h	49;"	d
+lua_dir_	lua_server.h	/^		char lua_dir_[ MAX_CHARS ];$/;"	m	class:LuaServer
 lua_freeline	include/lua/luaconf.h	281;"	d
 lua_freeline	include/lua/luaconf.h	287;"	d
 lua_getgccount	include/lua/lua.h	291;"	d
@@ -3326,11 +3361,13 @@ lvl	include/lua/lauxlib.h	/^  int lvl;  \/* number of strings in the stack (leve
 lvm_h	include/lua/lvm.h	8;"	d
 lzio_h	include/lua/lzio.h	9;"	d
 mInternal	include/google/protobuf/stubs/common.h	/^  Internal* mInternal;$/;"	m	class:google::protobuf::internal::Mutex
+m_opcode	shared/WorldPacket.h	/^        uint16 m_opcode;$/;"	m	class:WorldPacket
 m_s	tolua++-1.0.93/src/tests/tfunction.h	/^	char m_s[64];$/;"	m	class:Point
 m_x	tolua++-1.0.93/src/tests/tfunction.h	/^ float m_x;$/;"	m	class:Point
 m_y	tolua++-1.0.93/src/tests/tfunction.h	/^	float m_y;$/;"	m	class:Point
 ma	tolua++-1.0.93/src/tests/tarray.c	/^int ma[10];$/;"	v
 ma	tolua++-1.0.93/src/tests/tvariable.c	/^A ma = {31,32.0f,33.0,"Hello world from class in module",$/;"	v
+main	shared/test.cc	/^int main( void )$/;"	f
 main	tolua++-1.0.93/src/bin/tolua.c	/^int main (int argc, char* argv[])$/;"	f
 main	tolua++-1.0.93/src/tests/tarray.c	/^int main (void)$/;"	f
 main	tolua++-1.0.93/src/tests/tclass.cpp	/^int main ()$/;"	f
@@ -3340,6 +3377,7 @@ main	tolua++-1.0.93/src/tests/tvariable.c	/^int main (void)$/;"	f
 main	zeromq_client.cc	/^int main( void )$/;"	f
 main	zeromq_server.cc	/^int main( void )$/;"	f
 main	zeromq_shell.cc	/^int main(int argc, char **argv) {$/;"	f
+main_file_	lua_server.h	/^		char main_file_[ MAX_CHARS ];$/;"	m	class:LuaServer
 mainthread	include/lua/lstate.h	/^  struct lua_State *mainthread;$/;"	m	struct:global_State	typeref:struct:global_State::lua_State
 mapinheritance	tolua++-1.0.93/src/lib/tolua_map.c	/^static void mapinheritance (lua_State* L, const char* name, const char* base)$/;"	f	file:
 mappings_	include/google/protobuf/compiler/importer.h	/^  vector<Mapping> mappings_;$/;"	m	class:google::protobuf::compiler::DiskSourceTree
@@ -3355,7 +3393,7 @@ message	include/google/protobuf/stubs/common.h	/^  const std::string& message() 
 message_	include/google/protobuf/stubs/common.h	/^  const std::string message_;$/;"	m	class:google::protobuf::FatalException
 message_	include/google/protobuf/stubs/common.h	/^  std::string message_;$/;"	m	class:google::protobuf::internal::LogMessage
 message_factory_	include/google/protobuf/generated_message_reflection.h	/^  MessageFactory* message_factory_;$/;"	m	class:google::protobuf::internal::GeneratedMessageReflection
-message_prototype	include/google/protobuf/extension_set.h	/^    const MessageLite* message_prototype;$/;"	m	union:google::protobuf::internal::ExtensionInfo::__anon10
+message_prototype	include/google/protobuf/extension_set.h	/^    const MessageLite* message_prototype;$/;"	m	union:google::protobuf::internal::ExtensionInfo::__anon20
 message_set_wire_format	include/google/protobuf/descriptor.pb.h	/^inline bool MessageOptions::message_set_wire_format() const {$/;"	f	class:google::protobuf::MessageOptions
 message_set_wire_format_	include/google/protobuf/descriptor.pb.h	/^  bool message_set_wire_format_;$/;"	m	class:google::protobuf::MessageOptions
 message_t	include/zmq.hpp	/^        inline message_t ()$/;"	f	class:zmq::message_t
@@ -3369,7 +3407,7 @@ message_type_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf::Re
 message_type_count_	include/google/protobuf/descriptor.h	/^  int message_type_count_;$/;"	m	class:google::protobuf::FileDescriptor
 message_type_size	include/google/protobuf/descriptor.pb.h	/^inline int FileDescriptorProto::message_type_size() const {$/;"	f	class:google::protobuf::FileDescriptorProto
 message_types_	include/google/protobuf/descriptor.h	/^  Descriptor* message_types_;$/;"	m	class:google::protobuf::FileDescriptor
-message_value	include/google/protobuf/extension_set.h	/^      MessageLite* message_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+message_value	include/google/protobuf/extension_set.h	/^      MessageLite* message_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 metatable	include/lua/lobject.h	/^    struct Table *metatable;$/;"	m	struct:Udata::__anon14	typeref:struct:Udata::__anon14::Table
 metatable	include/lua/lobject.h	/^  struct Table *metatable;$/;"	m	struct:Table	typeref:struct:Table::Table
 method	include/google/protobuf/descriptor.pb.h	/^ServiceDescriptorProto::method() const {$/;"	f	class:google::protobuf::ServiceDescriptorProto
@@ -3595,7 +3633,7 @@ numparams	include/lua/lobject.h	/^  lu_byte numparams;$/;"	m	struct:Proto
 nups	include/lua/lobject.h	/^  lu_byte nups;  \/* number of upvalues *\/$/;"	m	struct:Proto
 nups	include/lua/lua.h	/^  int nups;		\/* (u) number of upvalues *\/$/;"	m	struct:lua_Debug
 nuse	include/lua/lstate.h	/^  lu_int32 nuse;  \/* number of elements *\/$/;"	m	struct:stringtable
-nval	include/lua/lparser.h	/^    lua_Number nval;$/;"	m	union:expdesc::__anon20
+nval	include/lua/lparser.h	/^    lua_Number nval;$/;"	m	union:expdesc::__anon9
 nvalue	include/lua/lobject.h	93;"	d
 obj2gco	include/lua/lstate.h	162;"	d
 object_	include/google/protobuf/stubs/common.h	/^  Class* object_;$/;"	m	class:google::protobuf::internal::MethodClosure0
@@ -3651,6 +3689,22 @@ operator /	tolua++-1.0.93/src/tests/tfunction.h	/^	Point operator\/ (float n) co
 operator <	include/google/protobuf/repeated_field.h	/^  bool operator<(const iterator& x) const { return it_ < x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrIterator
 operator <	include/google/protobuf/repeated_field.h	/^  bool operator<(const iterator& x) const { return it_ < x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrOverPtrsIterator
 operator <	tolua++-1.0.93/src/tests/tfunction.h	/^	bool operator< (const Point& p) const$/;"	f	class:Point
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(bool value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(const char *str)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(const std::string &value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(double value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(float value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(int16 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(int32 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(int64 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(int8 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(uint16 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(uint32 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(uint64 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^        ByteBuffer &operator<<(uint8 value)$/;"	f	class:ByteBuffer
+operator <<	shared/ByteBuffer.h	/^template <typename K, typename V> ByteBuffer &operator<<(ByteBuffer &b, std::map<K, V> &m)$/;"	f
+operator <<	shared/ByteBuffer.h	/^template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::list<T> v)$/;"	f
+operator <<	shared/ByteBuffer.h	/^template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::vector<T> v)$/;"	f
 operator <=	include/google/protobuf/repeated_field.h	/^  bool operator<=(const iterator& x) const { return it_ <= x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrIterator
 operator <=	include/google/protobuf/repeated_field.h	/^  bool operator<=(const iterator& x) const { return it_ <= x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrOverPtrsIterator
 operator <=	tolua++-1.0.93/src/tests/tfunction.h	/^	bool operator<= (const Point& p) const$/;"	f	class:Point
@@ -3693,9 +3747,25 @@ operator >	include/google/protobuf/repeated_field.h	/^  bool operator>(const ite
 operator >	include/google/protobuf/repeated_field.h	/^  bool operator>(const iterator& x) const { return it_ > x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrOverPtrsIterator
 operator >=	include/google/protobuf/repeated_field.h	/^  bool operator>=(const iterator& x) const { return it_ >= x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrIterator
 operator >=	include/google/protobuf/repeated_field.h	/^  bool operator>=(const iterator& x) const { return it_ >= x.it_; }$/;"	f	class:google::protobuf::internal::RepeatedPtrOverPtrsIterator
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(bool &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(double &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(float &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(int16 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(int32 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(int64 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(int8 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(std::string& value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(uint16 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(uint32 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(uint64 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^        ByteBuffer &operator>>(uint8 &value)$/;"	f	class:ByteBuffer
+operator >>	shared/ByteBuffer.h	/^template <typename K, typename V> ByteBuffer &operator>>(ByteBuffer &b, std::map<K, V> &m)$/;"	f
+operator >>	shared/ByteBuffer.h	/^template <typename T> ByteBuffer &operator>>(ByteBuffer &b, std::list<T> &v)$/;"	f
+operator >>	shared/ByteBuffer.h	/^template <typename T> ByteBuffer &operator>>(ByteBuffer &b, std::vector<T> &v)$/;"	f
 operator []	include/google/protobuf/repeated_field.h	/^  reference operator[](difference_type d) const { return *(*this + d); }$/;"	f	class:google::protobuf::internal::RepeatedPtrIterator
 operator []	include/google/protobuf/repeated_field.h	/^  reference operator[](difference_type d) const { return *(*this + d); }$/;"	f	class:google::protobuf::internal::RepeatedPtrOverPtrsIterator
 operator []	include/google/protobuf/stubs/common.h	/^  C& operator[](std::ptrdiff_t i) const {$/;"	f	class:google::protobuf::internal::scoped_array
+operator []	shared/ByteBuffer.h	/^        uint8 operator[](size_t pos)$/;"	f	class:ByteBuffer
 operator []	tolua++-1.0.93/src/tests/tfunction.h	/^	float& operator[] (int i)$/;"	f	class:Point
 operator []	tolua++-1.0.93/src/tests/tfunction.h	/^ float operator[] (int i) const$/;"	f	class:Point
 operator void*	include/zmq.hpp	/^        inline operator void* ()$/;"	f	class:zmq::context_t
@@ -3811,10 +3881,6 @@ pre_call_hook	tolua++-1.0.93/src/bin/lua/basic.lua	/^function pre_call_hook(f)$/
 pre_output_hook	tolua++-1.0.93/src/bin/lua/basic.lua	/^function pre_output_hook(package)$/;"	f
 pre_register_hook	tolua++-1.0.93/doc/tolua++.html	/^function pre_register_hook(package)$/;"	f
 pre_register_hook	tolua++-1.0.93/src/bin/lua/basic.lua	/^function pre_register_hook(package)$/;"	f
-prefix	tolua++-1.0.93/config_linux.py	/^prefix = '\/usr\/local'$/;"	v
-prefix	tolua++-1.0.93/config_msvc.py	/^prefix = None # (it's a string)$/;"	v
-prefix	tolua++-1.0.93/config_posix.py	/^prefix = '\/usr\/local'$/;"	v
-prefix	tolua++-1.0.93/custom-5.1.py	/^prefix = '\/mingw'$/;"	v
 prep	tolua++-1.0.93/src/bin/lua/package.lua	/^function prep(file)$/;"	f
 preparse_hook	tolua++-1.0.93/doc/tolua++.html	/^function preparse_hook(package)$/;"	f
 preparse_hook	tolua++-1.0.93/src/bin/lua/basic.lua	/^function preparse_hook(package)$/;"	f
@@ -3827,6 +3893,7 @@ prev	include/lua/lparser.h	/^  struct FuncState *prev;  \/* enclosing function *
 previous	include/google/protobuf/io/tokenizer.h	/^inline const Tokenizer::Token& Tokenizer::previous() {$/;"	f	class:google::protobuf::io::Tokenizer
 previous_	include/google/protobuf/io/tokenizer.h	/^  Token previous_;          \/\/ Returned by previous().$/;"	m	class:google::protobuf::io::Tokenizer
 previous_seek_failed_	include/google/protobuf/io/zero_copy_stream_impl.h	/^    bool previous_seek_failed_;$/;"	m	class:google::protobuf::io::FileInputStream::CopyingFileInputStream
+print_storage	shared/ByteBuffer.h	/^        void print_storage()$/;"	f	class:ByteBuffer
 printer_	include/google/protobuf/compiler/python/python_generator.h	/^  mutable io::Printer* printer_;  \/\/ Set in Generate().  Under mutex_.$/;"	m	class:google::protobuf::compiler::python::Generator
 profile_name	include/google/profiler.h	/^  char   profile_name[1024];  \/* Name of profile file being written, or '\\0' *\/$/;"	m	struct:ProfilerState
 properties	tolua++-1.0.93/doc/tolua++.html	/^<h3><a name="properties"><\/a>Binding Properties<\/h3>$/;"	a
@@ -3874,8 +3941,9 @@ protobuf	include/google/protobuf/wire_format_lite.h	/^namespace protobuf {$/;"	n
 protobuf	include/google/protobuf/wire_format_lite_inl.h	/^namespace protobuf {$/;"	n	namespace:google
 protobuf_AddDesc_demo_2epeople_2eproto	demo.people.pb.cc	/^void protobuf_AddDesc_demo_2epeople_2eproto() {$/;"	f	namespace:demo
 protobuf_AssignDesc_demo_2epeople_2eproto	demo.people.pb.cc	/^void protobuf_AssignDesc_demo_2epeople_2eproto() {$/;"	f	namespace:demo
-protobuf_AssignDescriptorsOnce	demo.people.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:demo::__anon2
-protobuf_RegisterTypes	demo.people.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:demo::__anon2
+protobuf_AssignDescriptorsOnce	demo.people.pb.cc	/^inline void protobuf_AssignDescriptorsOnce() {$/;"	f	namespace:demo::__anon25
+protobuf_AssignDescriptors_once_	demo.people.pb.cc	/^GOOGLE_PROTOBUF_DECLARE_ONCE(protobuf_AssignDescriptors_once_);$/;"	v
+protobuf_RegisterTypes	demo.people.pb.cc	/^void protobuf_RegisterTypes(const ::std::string&) {$/;"	f	namespace:demo::__anon25
 protobuf_ShutdownFile_demo_2epeople_2eproto	demo.people.pb.cc	/^void protobuf_ShutdownFile_demo_2epeople_2eproto() {$/;"	f	namespace:demo
 prototypes_	include/google/protobuf/dynamic_message.h	/^  scoped_ptr<PrototypeMap> prototypes_;$/;"	m	class:google::protobuf::DynamicMessageFactory
 prototypes_mutex_	include/google/protobuf/dynamic_message.h	/^  mutable Mutex prototypes_mutex_;$/;"	m	class:google::protobuf::DynamicMessageFactory
@@ -3886,11 +3954,13 @@ ptr_	include/google/protobuf/stubs/common.h	/^  C* ptr_;$/;"	m	class:google::pro
 push 	tolua++-1.0.93/src/bin/lua/container.lua	/^function push (t)$/;"	f
 push_collector	tolua++-1.0.93/src/lib/tolua_map.c	/^static void push_collector(lua_State* L, const char* type, lua_CFunction col) {$/;"	f	file:
 push_table_instance	tolua++-1.0.93/src/lib/tolua_is.c	/^int push_table_instance(lua_State* L, int lo) {$/;"	f
+put	shared/ByteBuffer.h	/^        template <typename T> void put(size_t pos,T value)$/;"	f	class:ByteBuffer
+put	shared/ByteBuffer.h	/^        void put(size_t pos, const uint8 *src, size_t cnt)$/;"	f	class:ByteBuffer
 pvalue	include/lua/lobject.h	92;"	d
 py_generic_services	include/google/protobuf/descriptor.pb.h	/^inline bool FileOptions::py_generic_services() const {$/;"	f	class:google::protobuf::FileOptions
 py_generic_services_	include/google/protobuf/descriptor.pb.h	/^  bool py_generic_services_;$/;"	m	class:google::protobuf::FileOptions
 python	include/google/protobuf/compiler/python/python_generator.h	/^namespace python {$/;"	n	namespace:google::protobuf::compiler
-r	include/lua/llex.h	/^  lua_Number r;$/;"	m	union:__anon22
+r	include/lua/llex.h	/^  lua_Number r;$/;"	m	union:__anon7
 r	tolua++-1.0.93/src/tests/tfunction.h	/^ float r, g, b;$/;"	m	class:ColorPoint
 randof	zeromq_help.h	64;"	d
 randof	zeromq_help.h	66;"	d
@@ -3900,6 +3970,9 @@ rawgco2ts	include/lua/lstate.h	149;"	d
 rawgco2u	include/lua/lstate.h	151;"	d
 rawtsvalue	include/lua/lobject.h	94;"	d
 rawuvalue	include/lua/lobject.h	96;"	d
+read	shared/ByteBuffer.h	/^        template <typename T> T read()$/;"	f	class:ByteBuffer
+read	shared/ByteBuffer.h	/^        template <typename T> T read(size_t pos) const$/;"	f	class:ByteBuffer
+read	shared/ByteBuffer.h	/^        void read(uint8 *dest, size_t len)$/;"	f	class:ByteBuffer
 read 	tolua++-1.0.93/src/bin/lua/compat.lua	/^function read (...)$/;"	f
 read_error_	include/google/protobuf/io/tokenizer.h	/^  bool read_error_;         \/\/ Did we previously encounter a read error?$/;"	m	class:google::protobuf::io::Tokenizer
 reader	include/lua/lzio.h	/^  lua_Reader reader;$/;"	m	struct:Zio
@@ -3915,6 +3988,7 @@ recv_multipart	zeromq_shell.cc	/^void recv_multipart(zmq::socket_t &socket) {$/;
 reference	include/google/protobuf/repeated_field.h	/^  typedef typename superclass::reference reference;$/;"	t	class:google::protobuf::internal::RepeatedPtrIterator
 reference	include/google/protobuf/repeated_field.h	/^  typedef typename superclass::reference reference;$/;"	t	class:google::protobuf::internal::RepeatedPtrOverPtrsIterator
 reflection	include/google/protobuf/message.h	/^  const Reflection* reflection;$/;"	m	struct:google::protobuf::Metadata
+register_class	lua_server.cc	/^int LuaServer::register_class( )$/;"	f	class:LuaServer
 registry	include/lua/lstate.h	25;"	d
 regtype 	tolua++-1.0.93/src/bin/lua/basic.lua	/^function regtype (t)$/;"	f
 release	include/google/protobuf/stubs/common.h	/^  C* release() {$/;"	f	class:google::protobuf::internal::scoped_array
@@ -3960,17 +4034,18 @@ remove_pointer	include/google/protobuf/stubs/common.h	/^template<typename T> str
 remove_pointer	include/google/protobuf/stubs/common.h	/^template<typename T> struct remove_pointer<T* volatile> { typedef T type; };$/;"	s	namespace:google::protobuf::internal
 remove_pointer	include/google/protobuf/stubs/common.h	/^template<typename T> struct remove_pointer<T*> { typedef T type; };$/;"	s	namespace:google::protobuf::internal
 renaming	tolua++-1.0.93/doc/tolua++.html	/^<A NAME="renaming"><\/A>Renaming constants, variables and functions<\/H3>$/;"	a
-repeated_bool_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <bool       >* repeated_bool_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_double_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <double     >* repeated_double_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_enum_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <int        >* repeated_enum_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_float_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <float      >* repeated_float_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_int32_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <int32      >* repeated_int32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_int64_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <int64      >* repeated_int64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_message_value	include/google/protobuf/extension_set.h	/^      RepeatedPtrField<MessageLite>* repeated_message_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_string_value	include/google/protobuf/extension_set.h	/^      RepeatedPtrField<string     >* repeated_string_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_uint32_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <uint32     >* repeated_uint32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
-repeated_uint64_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <uint64     >* repeated_uint64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+repeated_bool_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <bool       >* repeated_bool_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_double_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <double     >* repeated_double_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_enum_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <int        >* repeated_enum_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_float_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <float      >* repeated_float_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_int32_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <int32      >* repeated_int32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_int64_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <int64      >* repeated_int64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_message_value	include/google/protobuf/extension_set.h	/^      RepeatedPtrField<MessageLite>* repeated_message_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_string_value	include/google/protobuf/extension_set.h	/^      RepeatedPtrField<string     >* repeated_string_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_uint32_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <uint32     >* repeated_uint32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
+repeated_uint64_value	include/google/protobuf/extension_set.h	/^      RepeatedField   <uint64     >* repeated_uint64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 require_syntax_identifier_	include/google/protobuf/compiler/parser.h	/^  bool require_syntax_identifier_;$/;"	m	class:google::protobuf::compiler::Parser
+reserve	shared/ByteBuffer.h	/^        void reserve(size_t ressize)$/;"	f	class:ByteBuffer
 reserved	include/lua/lobject.h	/^    lu_byte reserved;$/;"	m	struct:TString::__anon13
 reset	include/google/protobuf/stubs/common.h	/^  void reset(C* p = NULL) {$/;"	f	class:google::protobuf::internal::scoped_array
 reset	include/google/protobuf/stubs/common.h	/^  void reset(C* p = NULL) {$/;"	f	class:google::protobuf::internal::scoped_ptr
@@ -3978,12 +4053,15 @@ reset2bits	include/lua/lgc.h	36;"	d
 resetbit	include/lua/lgc.h	33;"	d
 resetbits	include/lua/lgc.h	27;"	d
 resethookcount	include/lua/ldebug.h	18;"	d
+resize	shared/ByteBuffer.h	/^        void resize(size_t newsize)$/;"	f	class:ByteBuffer
 resolve_template_types	tolua++-1.0.93/src/bin/lua/declaration.lua	/^function resolve_template_types(type)$/;"	f
 restoreci	include/lua/ldo.h	28;"	d
 restorestack	include/lua/ldo.h	25;"	d
-revents	include/zmq.h	/^    short revents;$/;"	m	struct:__anon25
+revents	include/zmq.h	/^    short revents;$/;"	m	struct:__anon23
 rootgc	include/lua/lstate.h	/^  GCObject *rootgc;  \/* list of all collectable objects *\/$/;"	m	struct:global_State
-s	include/lua/lparser.h	/^    struct { int info, aux; } s;$/;"	m	union:expdesc::__anon20	typeref:struct:expdesc::__anon20::__anon21
+rpos	shared/ByteBuffer.h	/^        size_t rpos()$/;"	f	class:ByteBuffer
+rpos	shared/ByteBuffer.h	/^        size_t rpos(size_t rpos_)$/;"	f	class:ByteBuffer
+s	include/lua/lparser.h	/^    struct { int info, aux; } s;$/;"	m	union:expdesc::__anon9	typeref:struct:expdesc::__anon9::__anon10
 s	tolua++-1.0.93/src/tests/tvariable.c	/^char* s = "Hello world";$/;"	v
 s	tolua++-1.0.93/src/tests/tvariable.h	/^	char* s;$/;"	m	struct:A
 s_clock	zeromq_help.h	/^s_clock (void)$/;"	f
@@ -4248,6 +4326,7 @@ size	include/google/protobuf/repeated_field.h	/^inline int RepeatedPtrField<Elem
 size	include/google/protobuf/repeated_field.h	/^inline int RepeatedPtrFieldBase::size() const {$/;"	f	class:google::protobuf::internal::RepeatedPtrFieldBase
 size	include/lua/lstate.h	/^  int size;$/;"	m	struct:stringtable
 size	include/zmq.hpp	/^        inline size_t size ()$/;"	f	class:zmq::message_t
+size	shared/ByteBuffer.h	/^        size_t size() const { return _storage.size(); }$/;"	f	class:ByteBuffer
 sizeCclosure	include/lua/lfunc.h	14;"	d
 sizeLclosure	include/lua/lfunc.h	17;"	d
 size_	include/google/protobuf/io/zero_copy_stream_impl_lite.h	/^  const int size_;           \/\/ Total size of the array.$/;"	m	class:google::protobuf::io::ArrayInputStream
@@ -4263,7 +4342,7 @@ sizep	include/lua/lobject.h	/^  int sizep;  \/* size of `p' *\/$/;"	m	struct:Pro
 sizestring	include/lua/lstring.h	16;"	d
 sizeudata	include/lua/lstring.h	18;"	d
 sizeupvalues	include/lua/lobject.h	/^  int sizeupvalues;$/;"	m	struct:Proto
-socket	include/zmq.h	/^    void *socket;$/;"	m	struct:__anon25
+socket	include/zmq.h	/^    void *socket;$/;"	m	struct:__anon23
 socket_t	include/zmq.hpp	/^        inline socket_t (context_t &context_, int type_)$/;"	f	class:zmq::socket_t
 socket_t	include/zmq.hpp	/^    class socket_t$/;"	c	namespace:zmq
 source	include/lua/llex.h	/^  TString *source;  \/* current source name *\/$/;"	m	struct:LexState
@@ -4291,7 +4370,7 @@ start_	include/google/protobuf/descriptor.pb.h	/^  ::google::protobuf::int32 sta
 start_snapshot_	include/google/heap-checker.h	/^  void* start_snapshot_;$/;"	m	class:HeapLeakChecker
 start_time	include/google/profiler.h	/^  time_t start_time;          \/* If enabled, when was profiling started? *\/$/;"	m	struct:ProfilerState
 startpc	include/lua/lobject.h	/^  int startpc;  \/* first point where variable is active *\/$/;"	m	struct:LocVar
-static_descriptor_initializer_demo_2epeople_2eproto_	demo.people.pb.cc	/^} static_descriptor_initializer_demo_2epeople_2eproto_;$/;"	m	namespace:demo	typeref:struct:demo::StaticDescriptorInitializer_demo_2epeople_2eproto	file:
+static_descriptor_initializer_demo_2epeople_2eproto_	demo.people.pb.cc	/^} static_descriptor_initializer_demo_2epeople_2eproto_;$/;"	v	typeref:struct:demo::StaticDescriptorInitializer_demo_2epeople_2eproto
 status	include/lua/lstate.h	/^  lu_byte status;$/;"	m	struct:lua_State
 std	include/google/protobuf/stubs/common.h	/^namespace std {}$/;"	n
 stop_after_syntax_identifier_	include/google/protobuf/compiler/parser.h	/^  bool stop_after_syntax_identifier_;$/;"	m	class:google::protobuf::compiler::Parser
@@ -4299,7 +4378,7 @@ storeatubox	tolua++-1.0.93/src/lib/tolua_event.c	/^static void storeatubox (lua_
 stream_count_	include/google/protobuf/io/zero_copy_stream_impl.h	/^  int stream_count_;$/;"	m	class:google::protobuf::io::ConcatenatingInputStream
 streams_	include/google/protobuf/io/zero_copy_stream_impl.h	/^  ZeroCopyInputStream* const* streams_;$/;"	m	class:google::protobuf::io::ConcatenatingInputStream
 string_value	include/google/protobuf/descriptor.pb.h	/^inline const ::std::string& UninterpretedOption::string_value() const {$/;"	f	class:google::protobuf::UninterpretedOption
-string_value	include/google/protobuf/extension_set.h	/^      string*      string_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+string_value	include/google/protobuf/extension_set.h	/^      string*      string_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 string_value_	include/google/protobuf/descriptor.pb.h	/^  ::std::string* string_value_;$/;"	m	class:google::protobuf::UninterpretedOption
 stringtable	include/lua/lstate.h	/^typedef struct stringtable {$/;"	s
 stringtable	include/lua/lstate.h	/^} stringtable;$/;"	t	typeref:struct:stringtable
@@ -4335,6 +4414,7 @@ testTMode	include/lua/lopcodes.h	258;"	d
 testbit	include/lua/lgc.h	34;"	d
 testbits	include/lua/lgc.h	29;"	d
 text	include/google/protobuf/io/tokenizer.h	/^    string text;       \/\/ The exact text of the token as it appeared in$/;"	m	struct:google::protobuf::io::Tokenizer::Token
+textlike	shared/ByteBuffer.h	/^        void textlike()$/;"	f	class:ByteBuffer
 tfunction_h	tolua++-1.0.93/src/tests/tfunction.h	2;"	d
 th	include/lua/lstate.h	/^  struct lua_State th;  \/* thread *\/$/;"	m	union:GCObject	typeref:struct:GCObject::lua_State
 thvalue	include/lua/lobject.h	101;"	d
@@ -4346,7 +4426,6 @@ tolua_Error	tolua++-1.0.93/include/tolua++.h	/^struct tolua_Error$/;"	s
 tolua_Error	tolua++-1.0.93/include/tolua++.h	/^typedef struct tolua_Error tolua_Error;$/;"	t	typeref:struct:tolua_Error
 tolua_array	tolua++-1.0.93/src/lib/tolua_map.c	/^TOLUA_API void tolua_array (lua_State* L, const char* name, lua_CFunction get, lua_CFunction set)$/;"	f
 tolua_beginmodule	tolua++-1.0.93/src/lib/tolua_map.c	/^TOLUA_API void tolua_beginmodule (lua_State* L, const char* name)$/;"	f
-tolua_bin	tolua++-1.0.93/custom-5.1.py	/^tolua_bin = 'tolua++5.1'$/;"	v
 tolua_bnd_cast	tolua++-1.0.93/src/lib/tolua_map.c	/^static int tolua_bnd_cast (lua_State* L)$/;"	f	file:
 tolua_bnd_getpeer	tolua++-1.0.93/src/lib/tolua_map.c	/^static int tolua_bnd_getpeer(lua_State* L) {$/;"	f	file:
 tolua_bnd_inherit	tolua++-1.0.93/src/lib/tolua_map.c	/^static int tolua_bnd_inherit (lua_State* L) {$/;"	f	file:
@@ -4433,7 +4512,6 @@ tolua_isusertypearray	tolua++-1.0.93/src/lib/tolua_is.c	/^TOLUA_API int tolua_is
 tolua_isvalue	tolua++-1.0.93/src/lib/tolua_is.c	/^TOLUA_API int tolua_isvalue (lua_State* L, int lo, int def, tolua_Error* err)$/;"	f
 tolua_isvaluearray	tolua++-1.0.93/src/lib/tolua_is.c	/^TOLUA_API int tolua_isvaluearray$/;"	f
 tolua_isvaluenil	tolua++-1.0.93/src/lib/tolua_is.c	/^TOLUA_API int tolua_isvaluenil (lua_State* L, int lo, tolua_Error* err) {$/;"	f
-tolua_lib	tolua++-1.0.93/custom-5.1.py	/^tolua_lib = 'tolua++5.1'$/;"	v
 tolua_module	tolua++-1.0.93/src/lib/tolua_map.c	/^TOLUA_API void tolua_module (lua_State* L, const char* name, int hasvar)$/;"	f
 tolua_moduleevents	tolua++-1.0.93/src/lib/tolua_event.c	/^TOLUA_API void tolua_moduleevents (lua_State* L)$/;"	f
 tolua_newmetatable	tolua++-1.0.93/src/lib/tolua_map.c	/^static int tolua_newmetatable (lua_State* L, char* name)$/;"	f	file:
@@ -4540,7 +4618,7 @@ total_bytes_warning_threshold_	include/google/protobuf/io/coded_stream.h	/^  int
 total_size_	include/google/protobuf/repeated_field.h	/^  int      total_size_;$/;"	m	class:google::protobuf::RepeatedField
 total_size_	include/google/protobuf/repeated_field.h	/^  int    total_size_;$/;"	m	class:google::protobuf::internal::RepeatedPtrFieldBase
 totalbytes	include/lua/lstate.h	/^  lu_mem totalbytes;  \/* number of bytes currently allocated *\/$/;"	m	struct:global_State
-ts	include/lua/llex.h	/^  TString *ts;$/;"	m	union:__anon22
+ts	include/lua/llex.h	/^  TString *ts;$/;"	m	union:__anon7
 ts	include/lua/lstate.h	/^  union TString ts;$/;"	m	union:GCObject	typeref:union:GCObject::TString
 tsv	include/lua/lobject.h	/^  } tsv;$/;"	m	union:TString	typeref:struct:TString::__anon13
 tsvalue	include/lua/lobject.h	95;"	d
@@ -4577,21 +4655,19 @@ type_name_	include/google/protobuf/descriptor.pb.h	/^  ::std::string* type_name_
 type_renaming	tolua++-1.0.93/doc/tolua++.html	/^<a name="type_renaming"><\/a><h3>Renaming Types<\/h3>$/;"	a
 typevar	tolua++-1.0.93/src/bin/lua/basic.lua	/^function typevar(type)$/;"	f
 u	include/lua/lobject.h	/^  } u;$/;"	m	struct:UpVal	typeref:union:UpVal::__anon15
-u	include/lua/lparser.h	/^  } u;$/;"	m	struct:expdesc	typeref:union:expdesc::__anon20
+u	include/lua/lparser.h	/^  } u;$/;"	m	struct:expdesc	typeref:union:expdesc::__anon9
 u	include/lua/lstate.h	/^  union Udata u;$/;"	m	union:GCObject	typeref:union:GCObject::Udata
 u	tolua++-1.0.93/src/tests/tvariable.c	/^U u;$/;"	v
 ud	include/lua/lstate.h	/^  void *ud;         \/* auxiliary data to `frealloc' *\/$/;"	m	struct:global_State
-uild_dev	tolua++-1.0.93/debian/rules	/^	scons -c build_dev=0 all configure$/;"	m
-uild_dev	tolua++-1.0.93/debian/rules	/^	scons build_dev=0 prefix=$(CURDIR)\/debian\/tolua++\/usr configure$/;"	m
 uint	include/google/protobuf/stubs/common.h	/^typedef unsigned int uint;$/;"	t	namespace:google::protobuf
 uint16	include/google/protobuf/stubs/common.h	/^typedef uint16_t uint16;$/;"	t	namespace:google::protobuf
 uint16	include/google/protobuf/stubs/common.h	/^typedef unsigned __int16 uint16;$/;"	t	namespace:google::protobuf
 uint32	include/google/protobuf/stubs/common.h	/^typedef uint32_t uint32;$/;"	t	namespace:google::protobuf
 uint32	include/google/protobuf/stubs/common.h	/^typedef unsigned __int32 uint32;$/;"	t	namespace:google::protobuf
-uint32_value	include/google/protobuf/extension_set.h	/^      uint32       uint32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+uint32_value	include/google/protobuf/extension_set.h	/^      uint32       uint32_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 uint64	include/google/protobuf/stubs/common.h	/^typedef uint64_t uint64;$/;"	t	namespace:google::protobuf
 uint64	include/google/protobuf/stubs/common.h	/^typedef unsigned __int64 uint64;$/;"	t	namespace:google::protobuf
-uint64_value	include/google/protobuf/extension_set.h	/^      uint64       uint64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon11
+uint64_value	include/google/protobuf/extension_set.h	/^      uint64       uint64_value;$/;"	m	union:google::protobuf::internal::ExtensionSet::Extension::__anon21
 uint8	include/google/protobuf/stubs/common.h	/^typedef uint8_t  uint8;$/;"	t	namespace:google::protobuf
 uint8	include/google/protobuf/stubs/common.h	/^typedef unsigned __int8  uint8;$/;"	t	namespace:google::protobuf
 underlay_	include/google/protobuf/descriptor.h	/^  const DescriptorPool* underlay_;$/;"	m	class:google::protobuf::DescriptorPool
@@ -4683,19 +4759,21 @@ values_	include/google/protobuf/descriptor.h	/^  EnumValueDescriptor* values_;$/
 variable_delimiter_	include/google/protobuf/io/printer.h	/^  const char variable_delimiter_;$/;"	m	class:google::protobuf::io::Printer
 variables	tolua++-1.0.93/doc/tolua++.html	/^<A NAME="variables"><\/A>Binding external variables<\/H3>$/;"	a
 varint	include/google/protobuf/unknown_field_set.h	/^inline uint64 UnknownField::varint () const {$/;"	f	class:google::protobuf::UnknownField
-varint_	include/google/protobuf/unknown_field_set.h	/^    uint64 varint_;$/;"	m	union:google::protobuf::UnknownField::__anon8
+varint_	include/google/protobuf/unknown_field_set.h	/^    uint64 varint_;$/;"	m	union:google::protobuf::UnknownField::__anon18
 varname	include/lua/lobject.h	/^  TString *varname;$/;"	m	struct:LocVar
 version	include/zmq.hpp	/^    inline void version (int *major_, int *minor_, int *patch_)$/;"	f	namespace:zmq
 version	tolua++-1.0.93/src/bin/tolua.c	/^static void version (void)$/;"	f	file:
 version_info_	include/google/protobuf/compiler/command_line_interface.h	/^  string version_info_;$/;"	m	class:google::protobuf::compiler::CommandLineInterface
 virtual_path	include/google/protobuf/compiler/importer.h	/^    string virtual_path;$/;"	m	struct:google::protobuf::compiler::DiskSourceTree::Mapping
 void_function	include/google/heap-checker.h	/^  typedef void (*void_function)(void);$/;"	t	class:HeapCleaner
-vsm_data	include/zmq.h	/^    unsigned char vsm_data [ZMQ_MAX_VSM_SIZE];$/;"	m	struct:__anon24
-vsm_size	include/zmq.h	/^    unsigned char vsm_size;$/;"	m	struct:__anon24
+vsm_data	include/zmq.h	/^    unsigned char vsm_data [ZMQ_MAX_VSM_SIZE];$/;"	m	struct:__anon22
+vsm_size	include/zmq.h	/^    unsigned char vsm_size;$/;"	m	struct:__anon22
 warning 	tolua++-1.0.93/src/bin/lua/basic.lua	/^function warning (msg)$/;"	f
 weak	include/lua/lstate.h	/^  GCObject *weak;  \/* list of weak tables (to be cleared) *\/$/;"	m	struct:global_State
 what	include/lua/lua.h	/^  const char *what;	\/* (S) `Lua', `C', `main', `tail' *\/$/;"	m	struct:lua_Debug
 what	include/zmq.hpp	/^        virtual const char *what () const throw ()$/;"	f	class:zmq::error_t
+wpos	shared/ByteBuffer.h	/^        size_t wpos()$/;"	f	class:ByteBuffer
+wpos	shared/ByteBuffer.h	/^        size_t wpos(size_t wpos_)$/;"	f	class:ByteBuffer
 write 	tolua++-1.0.93/src/bin/lua/compat.lua	/^function write (...)$/;"	f
 writeto 	tolua++-1.0.93/src/bin/lua/compat.lua	/^function writeto (name)$/;"	f
 x	tolua++-1.0.93/src/tests/tarray.h	/^	float x;$/;"	m	struct:Point
@@ -4708,14 +4786,15 @@ zerror_	include/google/protobuf/io/gzip_stream.h	/^  int zerror_;$/;"	m	class:go
 zgetc	include/lua/lzio.h	22;"	d
 zmq	include/zmq.hpp	/^namespace zmq$/;"	n
 zmq_free_fn	include/zmq.h	/^typedef void (zmq_free_fn) (void *data, void *hint);$/;"	t
-zmq_msg_t	include/zmq.h	/^} zmq_msg_t;$/;"	t	typeref:struct:__anon24
-zmq_pollitem_t	include/zmq.h	/^} zmq_pollitem_t;$/;"	t	typeref:struct:__anon25
+zmq_msg_t	include/zmq.h	/^} zmq_msg_t;$/;"	t	typeref:struct:__anon22
+zmq_pollitem_t	include/zmq.h	/^} zmq_pollitem_t;$/;"	t	typeref:struct:__anon23
 ~CodedInputStream	include/google/protobuf/io/coded_stream.h	/^inline CodedInputStream::~CodedInputStream() {$/;"	f	class:google::protobuf::io::CodedInputStream
 ~ColorPoint	tolua++-1.0.93/src/tests/tfunction.h	/^ virtual ~ColorPoint () { }$/;"	f	class:ColorPoint
 ~FieldSkipper	include/google/protobuf/wire_format_lite.h	/^  virtual ~FieldSkipper() {}$/;"	f	class:google::protobuf::internal::FieldSkipper
 ~FunctionClosure1	include/google/protobuf/stubs/common.h	/^  ~FunctionClosure1() {}$/;"	f	class:google::protobuf::internal::FunctionClosure1
 ~FunctionClosure2	include/google/protobuf/stubs/common.h	/^  ~FunctionClosure2() {}$/;"	f	class:google::protobuf::internal::FunctionClosure2
 ~GeneratedExtensionFinder	include/google/protobuf/extension_set.h	/^  virtual ~GeneratedExtensionFinder() {}$/;"	f	class:google::protobuf::internal::GeneratedExtensionFinder
+~LuaServer	lua_server.cc	/^LuaServer::~LuaServer( )$/;"	f	class:LuaServer
 ~MethodClosure0	include/google/protobuf/stubs/common.h	/^  ~MethodClosure0() {}$/;"	f	class:google::protobuf::internal::MethodClosure0
 ~MethodClosure1	include/google/protobuf/stubs/common.h	/^  ~MethodClosure1() {}$/;"	f	class:google::protobuf::internal::MethodClosure1
 ~MethodClosure2	include/google/protobuf/stubs/common.h	/^  ~MethodClosure2() {}$/;"	f	class:google::protobuf::internal::MethodClosure2

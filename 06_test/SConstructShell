@@ -1,4 +1,0 @@
-Program( 'zeromq_shell', ['zeromq_shell.cc','zeromq_help.h'],
-		LIBS = ['zmq'],
-		LIBPATH = ['/usr/local/lib','/usr/lib']
-	   )

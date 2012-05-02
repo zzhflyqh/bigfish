@@ -1,4 +1,0 @@
-Program( 'zeromq_client', ['zeromq_client.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'],
-		LIBS = ['zmq','protobuf'],
-		LIBPATH = ['/usr/local/lib','/usr/lib']
-	   )
