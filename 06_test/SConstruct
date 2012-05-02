@@ -4,9 +4,9 @@ SetOption('num_jobs', num_cpu)
 
 env=Environment(CC='g++',
   CFLAGS=[],
-  LIBS=['zmq','protobuf'],
-  LIBPATH=['/usr/local/lib','/usr/lib'],
-  CPPPATH=['.','/usr/local/include', './shared'],
+  LIBS=['uuid', 'pthread', 'zmq','protobuf'],
+  LIBPATH=['./lib'],
+  CPPPATH=['.','./include','./include/lua','./shared'],
   CPPDEFINES=[])
 
 debug = ARGUMENTS.get('debug', 0)

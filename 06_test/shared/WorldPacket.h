@@ -6,17 +6,17 @@
 class WorldPacket : public ByteBuffer
 {
     public:
-        WorldPacket()                                       : ByteBuffer(0), _opcode(0)
+        WorldPacket()                                       : ByteBuffer(0), opcode_(0)
         {
             // do nothing
         }
 
-        explicit WorldPacket(uint16_t opcode, size_t res=200) : ByteBuffer(res), _opcode(opcode) 
+        explicit WorldPacket(uint16_t opcode, size_t res=200) : ByteBuffer(res), opcode_(opcode) 
         {
             // do nothing
         }
                         
-        WorldPacket(const WorldPacket &packet) : ByteBuffer(packet), _opcode(packet.m_opcode)
+        WorldPacket(const WorldPacket &packet) : ByteBuffer(packet), opcode_(packet.opcode_)
         {
             // do nothing
         }
@@ -24,14 +24,14 @@ class WorldPacket : public ByteBuffer
         void Init(uint16_t opcode, size_t newres=200)
         {
             clear();
-            _storage.reserve(newres);
-            _opcode = opcode;
+            storage_.reserve(newres);
+            opcode_ = opcode;
         }
 
-        uint16_t GetOpcode() const { return _opcode; }
-        void SetOpcode(uint16_t opcode) { _opcode = opcode; }
+        uint16_t GetOpcode() const { return opcode_; }
+        void SetOpcode(uint16_t opcode) { opcode_ = opcode; }
 
     protected:
-        uint16_t _opcode;
+        uint16_t opcode_;
 };
 #endif

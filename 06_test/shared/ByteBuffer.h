@@ -22,22 +22,22 @@ class ByteBuffer
         const static size_t DEFAULT_SIZE = 0x1000;
 
         // constructor
-        ByteBuffer(): _rpos(0), _wpos(0)
+        ByteBuffer(): rpos_(0), wpos_(0)
         {
-            _storage.reserve(DEFAULT_SIZE);
+            storage_.reserve(DEFAULT_SIZE);
         }
         // constructor
-        ByteBuffer(size_t res): _rpos(0), _wpos(0)
+        ByteBuffer(size_t res): rpos_(0), wpos_(0)
         {
-            _storage.reserve(res);
+            storage_.reserve(res);
         }
         // copy constructor
-        ByteBuffer(const ByteBuffer &buf): _rpos(buf._rpos), _wpos(buf._wpos), _storage(buf._storage) { }
+        ByteBuffer(const ByteBuffer &buf): rpos_(buf.rpos_), wpos_(buf.wpos_), storage_(buf.storage_) { }
 
         void clear()
         {
-            _storage.clear();
-            _rpos = _wpos = 0;
+            storage_.clear();
+            rpos_ = wpos_ = 0;
         }
 
         template <typename T> void append(T value)
@@ -199,59 +199,59 @@ class ByteBuffer
 
         size_t rpos()
         {
-            return _rpos;
+            return rpos_;
         };
 
         size_t rpos(size_t rpos_)
         {
-            _rpos = rpos_;
-            return _rpos;
+            rpos_ = rpos_;
+            return rpos_;
         };
 
         size_t wpos()
         {
-            return _wpos;
+            return wpos_;
         }
 
         size_t wpos(size_t wpos_)
         {
-            _wpos = wpos_;
-            return _wpos;
+            wpos_ = wpos_;
+            return wpos_;
         }
 
         template <typename T> T read()
         {
-            T r=read<T>(_rpos);
-            _rpos += sizeof(T);
+            T r=read<T>(rpos_);
+            rpos_ += sizeof(T);
             return r;
         };
         template <typename T> T read(size_t pos) const
         {
             ASSERT(pos + sizeof(T) <= size() || PrintPosError(false,pos,sizeof(T)));
-            return *((T const*)&_storage[pos]);
+            return *((T const*)&storage_[pos]);
         }
 
         void read(uint8_t *dest, size_t len)
         {
-            ASSERT(_rpos  + len  <= size() || PrintPosError(false,_rpos,len));
-            memcpy(dest, &_storage[_rpos], len);
-            _rpos += len;
+            ASSERT(rpos_  + len  <= size() || PrintPosError(false,rpos_,len));
+            memcpy(dest, &storage_[rpos_], len);
+            rpos_ += len;
         }
 
-        const uint8_t *contents() const { return &_storage[0]; }
+        const uint8_t *contents() const { return &storage_[0]; }
 
-        size_t size() const { return _storage.size(); }
-        bool empty() const { return _storage.empty(); }
+        size_t size() const { return storage_.size(); }
+        bool empty() const { return storage_.empty(); }
 
         void resize(size_t newsize)
         {
-            _storage.resize(newsize);
-            _rpos = 0;
-            _wpos = size();
+            storage_.resize(newsize);
+            rpos_ = 0;
+            wpos_ = size();
         };
         void reserve(size_t ressize)
         {
-            if (ressize > size()) _storage.reserve(ressize);
+            if (ressize > size()) storage_.reserve(ressize);
         };
 
         void append(const std::string& str)
@@ -268,10 +268,10 @@ class ByteBuffer
 
             ASSERT(size() < 10000000);
 
-            if (_storage.size() < _wpos + cnt)
-                _storage.resize(_wpos + cnt);
-            memcpy(&_storage[_wpos], src, cnt);
-            _wpos += cnt;
+            if (storage_.size() < wpos_ + cnt)
+                storage_.resize(wpos_ + cnt);
+            memcpy(&storage_[wpos_], src, cnt);
+            wpos_ += cnt;
         }
         void append(const ByteBuffer& buffer)
         {
@@ -286,7 +286,7 @@ class ByteBuffer
             {
                 if(guid & 0xFF)
                 {
-                    _storage[mask_position] |= (1<<i);
+                    storage_[mask_position] |= (1<<i);
                     *this << ((uint8_t)(guid & 0xFF));
                 }
 
@@ -297,7 +297,7 @@ class ByteBuffer
         void put(size_t pos, const uint8_t *src, size_t cnt)
         {
             ASSERT(pos + cnt <= size() || PrintPosError(true,pos,cnt));
-            memcpy(&_storage[pos], src, cnt);
+            memcpy(&storage_[pos], src, cnt);
         }
 
     protected:
@@ -307,8 +307,8 @@ class ByteBuffer
             return false;
         }
 
-        size_t _rpos, _wpos;
-        std::vector<uint8_t> _storage;
+        size_t rpos_, wpos_;
+        std::vector<uint8_t> storage_;
 };
 
 template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::vector<T> v)
