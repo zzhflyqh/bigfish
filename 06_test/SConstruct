@@ -1,0 +1,12 @@
+env=Environment(CC='g++',
+  CFLAGS=[],
+  CCFLAGS=['-g'],
+  LIBS=['zmq','protobuf'],
+  LIBPATH=['/usr/local/lib','/usr/lib'],
+  CPPPATH=['.','/usr/local/include', './shared'],
+  CPPDEFINES=[])
+
+env.Program('zeromq_client',['zeromq_client.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
+env.Program('zeromq_server',['zeromq_server.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
+env.Program('zeromq_shell',['zeromq_shell.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
+env.Program('test',['test.cc'])
