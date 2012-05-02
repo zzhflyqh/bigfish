@@ -16,9 +16,24 @@
 
 #include "WorldPacket.h"
 
+enum OPCODE{
+    PT_ENTER_SCENE = 1,
+    ST_ENTER_SCENE
+};
+
 int main( void )
 {
-    WorldPacket pack;
+    WorldPacket pack( PT_ENTER_SCENE );
+    pack << uint32_t(123);
+    pack << std::string("zhangzhihua");
+    
+    uint32_t id;
+    std::string name;
+    pack >> id;
+    pack >> name;
+
+    fprintf( stdout, "%d === %s", id, name.c_str( ) );
+    return 0;
 }
 
 

@@ -1,7 +1,16 @@
 #ifndef _BYTEBUFFER_H
 #define _BYTEBUFFER_H
 #include <stdio.h>
+#include <stdlib.h>
 #include <assert.h>
+#include <vector>
+#include <stddef.h>
+#include <linux/types.h>
+#include <stdint.h>
+#include <string.h>
+#include <string>
+#include <list>
+#include <map>
 
 #ifndef ASSERT
 #define ASSERT(T) assert(T)
@@ -33,11 +42,11 @@ class ByteBuffer
 
         template <typename T> void append(T value)
         {
-            append((uint8 *)&value, sizeof(value));
+            append((uint8_t *)&value, sizeof(value));
         }
         template <typename T> void put(size_t pos,T value)
         {
-            put(pos,(uint8 *)&value,sizeof(value));
+            put(pos,(uint8_t *)&value,sizeof(value));
         }
 
         ByteBuffer &operator<<(bool value)
@@ -45,46 +54,46 @@ class ByteBuffer
             append<char>((char)value);
             return *this;
         }
-        ByteBuffer &operator<<(uint8 value)
+        ByteBuffer &operator<<(uint8_t value)
         {
-            append<uint8>(value);
+            append<uint8_t>(value);
             return *this;
         }
-        ByteBuffer &operator<<(uint16 value)
+        ByteBuffer &operator<<(uint16_t value)
         {
-            append<uint16>(value);
+            append<uint16_t>(value);
             return *this;
         }
-        ByteBuffer &operator<<(uint32 value)
+        ByteBuffer &operator<<(uint32_t value)
         {
-            append<uint32>(value);
+            append<uint32_t>(value);
             return *this;
         }
-        ByteBuffer &operator<<(uint64 value)
+        ByteBuffer &operator<<(uint64_t value)
         {
-            append<uint64>(value);
+            append<uint64_t>(value);
             return *this;
         }
 
         // signed as in 2e complement
-        ByteBuffer &operator<<(int8 value)
+        ByteBuffer &operator<<(int8_t value)
         {
-            append<int8>(value);
+            append<int8_t>(value);
             return *this;
         }
-        ByteBuffer &operator<<(int16 value)
+        ByteBuffer &operator<<(int16_t value)
         {
-            append<int16>(value);
+            append<int16_t>(value);
             return *this;
         }
-        ByteBuffer &operator<<(int32 value)
+        ByteBuffer &operator<<(int32_t value)
         {
-            append<int32>(value);
+            append<int32_t>(value);
             return *this;
         }
-        ByteBuffer &operator<<(int64 value)
+        ByteBuffer &operator<<(int64_t value)
         {
-            append<int64>(value);
+            append<int64_t>(value);
             return *this;
         }
 
@@ -101,14 +110,14 @@ class ByteBuffer
         }
         ByteBuffer &operator<<(const std::string &value)
         {
-            append((uint8 const *)value.c_str(), value.length());
-            append((uint8)0);
+            append((uint8_t const *)value.c_str(), value.length());
+            append((uint8_t)0);
             return *this;
         }
         ByteBuffer &operator<<(const char *str)
         {
-            append((uint8 const *)str, str ? strlen(str) : 0);
-            append((uint8)0);
+            append((uint8_t const *)str, str ? strlen(str) : 0);
+            append((uint8_t)0);
             return *this;
         }
 
@@ -117,46 +126,46 @@ class ByteBuffer
             value = read<char>() > 0 ? true : false;
             return *this;
         }
-        ByteBuffer &operator>>(uint8 &value)
+        ByteBuffer &operator>>(uint8_t &value)
         {
-            value = read<uint8>();
+            value = read<uint8_t>();
             return *this;
         }
-        ByteBuffer &operator>>(uint16 &value)
+        ByteBuffer &operator>>(uint16_t &value)
         {
-            value = read<uint16>();
+            value = read<uint16_t>();
             return *this;
         }
-        ByteBuffer &operator>>(uint32 &value)
+        ByteBuffer &operator>>(uint32_t &value)
         {
-            value = read<uint32>();
+            value = read<uint32_t>();
             return *this;
         }
-        ByteBuffer &operator>>(uint64 &value)
+        ByteBuffer &operator>>(uint64_t &value)
         {
-            value = read<uint64>();
+            value = read<uint64_t>();
             return *this;
         }
 
         //signed as in 2e complement
-        ByteBuffer &operator>>(int8 &value)
+        ByteBuffer &operator>>(int8_t &value)
         {
-            value = read<int8>();
+            value = read<int8_t>();
             return *this;
         }
-        ByteBuffer &operator>>(int16 &value)
+        ByteBuffer &operator>>(int16_t &value)
         {
-            value = read<int16>();
+            value = read<int16_t>();
             return *this;
         }
-        ByteBuffer &operator>>(int32 &value)
+        ByteBuffer &operator>>(int32_t &value)
         {
-            value = read<int32>();
+            value = read<int32_t>();
             return *this;
         }
-        ByteBuffer &operator>>(int64 &value)
+        ByteBuffer &operator>>(int64_t &value)
         {
-            value = read<int64>();
+            value = read<int64_t>();
             return *this;
         }
 
@@ -183,9 +192,9 @@ class ByteBuffer
             return *this;
         }
 
-        uint8 operator[](size_t pos)
+        uint8_t operator[](size_t pos)
         {
-            return read<uint8>(pos);
+            return read<uint8_t>(pos);
         }
 
         size_t rpos()
@@ -222,14 +231,14 @@ class ByteBuffer
             return *((T const*)&_storage[pos]);
         }
 
-        void read(uint8 *dest, size_t len)
+        void read(uint8_t *dest, size_t len)
         {
             ASSERT(_rpos  + len  <= size() || PrintPosError(false,_rpos,len));
             memcpy(dest, &_storage[_rpos], len);
             _rpos += len;
         }
 
-        const uint8 *contents() const { return &_storage[0]; }
+        const uint8_t *contents() const { return &_storage[0]; }
 
         size_t size() const { return _storage.size(); }
         bool empty() const { return _storage.empty(); }
@@ -247,13 +256,13 @@ class ByteBuffer
 
         void append(const std::string& str)
         {
-            append((uint8 const*)str.c_str(),str.size() + 1);
+            append((uint8_t const*)str.c_str(),str.size() + 1);
         }
         void append(const char *src, size_t cnt)
         {
-            return append((const uint8 *)src, cnt);
+            return append((const uint8_t *)src, cnt);
         }
-        void append(const uint8 *src, size_t cnt)
+        void append(const uint8_t *src, size_t cnt)
         {
             if (!cnt) return;
 
@@ -269,115 +278,42 @@ class ByteBuffer
             if(buffer.size()) append(buffer.contents(),buffer.size());
         }
 
-        void appendPackGUID(uint64 guid)
+        void appendPackGUID(uint64_t guid)
         {
             size_t mask_position = wpos();
-            *this << uint8(0);
-            for(uint8 i = 0; i < 8; i++)
+            *this << uint8_t(0);
+            for(uint8_t i = 0; i < 8; i++)
             {
                 if(guid & 0xFF)
                 {
                     _storage[mask_position] |= (1<<i);
-                    *this << ((uint8)(guid & 0xFF));
+                    *this << ((uint8_t)(guid & 0xFF));
                 }
 
                 guid >>= 8;
             }
         }
 
-        void put(size_t pos, const uint8 *src, size_t cnt)
+        void put(size_t pos, const uint8_t *src, size_t cnt)
         {
             ASSERT(pos + cnt <= size() || PrintPosError(true,pos,cnt));
             memcpy(&_storage[pos], src, cnt);
-        }
-        void print_storage()
-        {
-            if(!sLog.IsOutDebug())                          // optimize disabled debug output
-                return;
-
-            sLog.outDebug("STORAGE_SIZE: %u", size() );
-            for(uint32 i = 0; i < size(); i++)
-                sLog.outDebugInLine("%u - ", read<uint8>(i) );
-            sLog.outDebug(" ");
-        }
-
-        void textlike()
-        {
-            if(!sLog.IsOutDebug())                          // optimize disabled debug output
-                return;
-
-            sLog.outDebug("STORAGE_SIZE: %u", size() );
-            for(uint32 i = 0; i < size(); i++)
-                sLog.outDebugInLine("%c", read<uint8>(i) );
-            sLog.outDebug(" ");
-        }
-
-        void hexlike()
-        {
-            if(!sLog.IsOutDebug())                          // optimize disabled debug output
-                return;
-
-            uint32 j = 1, k = 1;
-            sLog.outDebug("STORAGE_SIZE: %u", size() );
-            for(uint32 i = 0; i < size(); i++)
-            {
-                if ((i == (j*8)) && ((i != (k*16))))
-                {
-                    if (read<uint8>(i) < 0x0F)
-                    {
-                        sLog.outDebugInLine("| 0%X ", read<uint8>(i) );
-                    }
-                    else
-                    {
-                        sLog.outDebugInLine("| %X ", read<uint8>(i) );
-                    }
-                    j++;
-                }
-                else if (i == (k*16))
-                {
-                    if (read<uint8>(i) < 0x0F)
-                    {
-                        sLog.outDebugInLine("\n0%X ", read<uint8>(i) );
-                    }
-                    else
-                    {
-                        sLog.outDebugInLine("\n%X ", read<uint8>(i) );
-                    }
-
-                    k++;
-                    j++;
-                }
-                else
-                {
-                    if (read<uint8>(i) < 0x0F)
-                    {
-                        sLog.outDebugInLine("0%X ", read<uint8>(i) );
-                    }
-                    else
-                    {
-                        sLog.outDebugInLine("%X ", read<uint8>(i) );
-                    }
-                }
-            }
-            sLog.outDebug(" ");
         }
 
     protected:
         bool PrintPosError(bool add, size_t pos, size_t esize) const
         {
             fprintf(stderr, "ERROR: Attempt %s in ByteBuffer (pos: %u size: %u) value with size: %u",(add ? "put" : "get"),pos, size(), esize);
-
-            // assert must fail after function call
             return false;
         }
 
         size_t _rpos, _wpos;
-        std::vector<uint8> _storage;
+        std::vector<uint8_t> _storage;
 };
 
 template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::vector<T> v)
 {
-    b << (uint32)v.size();
+    b << (uint32_t)v.size();
     for (typename std::vector<T>::iterator i = v.begin(); i != v.end(); i++)
     {
         b << *i;
@@ -387,7 +323,7 @@ template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::vector<T> v)
 
 template <typename T> ByteBuffer &operator>>(ByteBuffer &b, std::vector<T> &v)
 {
-    uint32 vsize;
+    uint32_t vsize;
     b >> vsize;
     v.clear();
     while(vsize--)
@@ -401,7 +337,7 @@ template <typename T> ByteBuffer &operator>>(ByteBuffer &b, std::vector<T> &v)
 
 template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::list<T> v)
 {
-    b << (uint32)v.size();
+    b << (uint32_t)v.size();
     for (typename std::list<T>::iterator i = v.begin(); i != v.end(); i++)
     {
         b << *i;
@@ -411,7 +347,7 @@ template <typename T> ByteBuffer &operator<<(ByteBuffer &b, std::list<T> v)
 
 template <typename T> ByteBuffer &operator>>(ByteBuffer &b, std::list<T> &v)
 {
-    uint32 vsize;
+    uint32_t vsize;
     b >> vsize;
     v.clear();
     while(vsize--)
@@ -425,7 +361,7 @@ template <typename T> ByteBuffer &operator>>(ByteBuffer &b, std::list<T> &v)
 
 template <typename K, typename V> ByteBuffer &operator<<(ByteBuffer &b, std::map<K, V> &m)
 {
-    b << (uint32)m.size();
+    b << (uint32_t)m.size();
     for (typename std::map<K, V>::iterator i = m.begin(); i != m.end(); i++)
     {
         b << i->first << i->second;
@@ -435,7 +371,7 @@ template <typename K, typename V> ByteBuffer &operator<<(ByteBuffer &b, std::map
 
 template <typename K, typename V> ByteBuffer &operator>>(ByteBuffer &b, std::map<K, V> &m)
 {
-    uint32 msize;
+    uint32_t msize;
     b >> msize;
     m.clear();
     while(msize--)

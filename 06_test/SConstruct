@@ -1,12 +1,22 @@
+import os
+num_cpu = int(os.environ.get('NUM_CPU', 4))
+SetOption('num_jobs', num_cpu)
+
 env=Environment(CC='g++',
   CFLAGS=[],
-  CCFLAGS=['-g'],
   LIBS=['zmq','protobuf'],
   LIBPATH=['/usr/local/lib','/usr/lib'],
   CPPPATH=['.','/usr/local/include', './shared'],
   CPPDEFINES=[])
 
-env.Program('zeromq_client',['zeromq_client.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
-env.Program('zeromq_server',['zeromq_server.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
-env.Program('zeromq_shell',['zeromq_shell.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
-env.Program('test',['test.cc'])
+debug = ARGUMENTS.get('debug', 0)
+if int(debug):
+    env.Append(CCFLAGS = '-g')
+
+client = env.Program('zeromq_client',['zeromq_client.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
+server = env.Program('zeromq_server',['zeromq_server.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
+shell = env.Program('zeromq_shell',['zeromq_shell.cc','zeromq_help.h','demo.people.pb.h', 'demo.people.pb.cc'])
+test = env.Program('test',['test.cc'])
+
+env.Install('./bin', [client, server, shell, test])
+env.Alias('install', './bin')
