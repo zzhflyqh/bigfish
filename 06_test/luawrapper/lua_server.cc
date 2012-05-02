@@ -61,4 +61,10 @@ int LuaServer::get_table_field_ref( const char *_table, const char *_field, int 
 	return 0;
 }
 
+int LuaServer::update_lua_refs( )
+{
+    get_table_field_ref( "gamesvr",  "message_handler", GAMESVR_MESSAGE_HANDLER, LUA_REGISTRYINDEX );
+}
+
+
 

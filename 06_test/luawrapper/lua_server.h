@@ -33,6 +33,7 @@ class LuaServer{
 		char main_file_[ MAX_CHARS ];
 	
 	private:
+        int update_lua_refs( );
 		int unregister_lua_refs( );
 		int register_class( );
 		int register_global( );
