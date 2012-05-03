@@ -15,6 +15,7 @@
  **/
 
 #include "WorldPacket.h"
+#include "mpool.h"
 
 enum OPCODE{
     PT_ENTER_SCENE = 1,
@@ -33,6 +34,11 @@ int main( void )
     pack >> name;
 
     fprintf( stdout, "%d === %s", id, name.c_str( ) );
+
+    mpool_t *pool = mpool_create( 1024 );
+    char *c1 = (char *)mpool_alloc( sizeof(char), pool );
+    *c1 = 'A';
+    printf( "==== %c", *c1 );
     return 0;
 }
 
