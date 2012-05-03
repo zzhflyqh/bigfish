@@ -1,24 +1,20 @@
 #include <assert.h>
 #include "ar.h"
-#include "misc.h"
-#include "dbgnew.h"
 
-MemPooler<Ar>* Ar::mem_pool_ = NULL;
+mpool_t* Ar::mem_pool_ = NULL;
 Ar::Ar( const void* buf, u_int buf_size)
 {
-	BEFORE_CHECK(0);
+    if( !Ar::mem_pool_ ) Ar::mem_pool_ = mpool_create( 10240 );
 	if( buf )
 	{
 		mode_ = load;
 		buf_start_ = (char*)buf;
 		buf_size_ = buf_size;
-        buffer_ = NULL;
 	}
 	else
 	{
 		mode_ = store;
-		buffer_ = create_buffer();
-		buf_start_ = buffer_->get_writable_buffer( &buf_size_ );
+		buf_start_ = mpool_alloc( buf_size, Ar::mem_pool_ )
 	}
 	
 	buf_max_ = buf_start_ + buf_size_;

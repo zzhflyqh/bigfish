@@ -60,6 +60,8 @@ void *mpool_alloc(size_t siz, mpool_t *pool) {
  * release all memory pool
  */
 void mpool_destroy (mpool_t *pool) {
+    if( !pool ) return;
+
     for (mpool_pool_t *p=pool->head;p!=NULL;) {
         mpool_pool_t *current = p;
         mpool_pool_t *next    = p->next;

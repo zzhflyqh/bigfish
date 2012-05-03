@@ -2,6 +2,7 @@
 #define __AR_H__
 
 #include "log.h"
+#include "mpool.h"
 
 struct _DOUBLE  { char doubleBits[sizeof(double)]; };
 struct _float   { char floatBits[sizeof(float)]; };
@@ -30,7 +31,6 @@ public:
 	Ar( const void* buf = NULL, u_int buf_size = 0 );	
 	~Ar();
 public:
-    /*! add by syd */
     void reset();
 
 	bool is_loading() const;
@@ -48,7 +48,7 @@ public:
 	int peek_int();
     unsigned short peek_short();
     unsigned short peek_type( const char* buf, int len );
-	int check_buf(int size);					//检查buff符合要求，返回0，失败返回非0
+	int check_buf(int size);					
 	char* get_buffer(int* buf_size);
 	u_long get_offset(void);
 	void write_int_at( int num, u_long _offset );
@@ -61,7 +61,7 @@ public:
 	void set_exception();
 
 public:
-	Ar& operator<<(char by); // -127 ~ +127
+	Ar& operator<<(char by); 
 	Ar& operator<<(unsigned char uc);
 	Ar& operator<<(short w);
 	Ar& operator<<(unsigned short us);
@@ -86,12 +86,12 @@ public:
 	int errno_;
 
 public:
-	static MemPooler<Ar>* mem_pool_;
+	static mpool_t* mem_pool_;
 
-	void * operator new( size_t size ) { (void)size; return Ar::mem_pool_->alloc(); }
-	void * operator new( size_t size, char * filename, int line ) { (void)size; (void)filename; (void)line; return Ar::mem_pool_->alloc(); }
-	void operator delete( void * ptr ) { Ar::mem_pool_->free( (Ar*)ptr ); }
-	void operator delete( void * ptr, char * filename, int line ) { Ar::mem_pool_->free( (Ar*)ptr ); }
+	void * operator new( size_t size ) { (void)size; if( !Ar::mem_pool_ ) Ar::mem_pool_ = mpool_create( 10240 );return mpool_alloc( size, Ar::mem_pool_ ); }
+	void * operator new( size_t size, char * filename, int line ) { (void)size; (void)filename; (void)line; if( !Ar::mem_pool_ ) Ar::mem_pool_ = mpool_create( 10240 );return mpool_alloc( size, Ar::mem_pool_ ); }
+	void operator delete( void * ptr ) { mpool_destroy( Ar::mem_pool_ );MPOOL_FREE( (Ar*)ptr ); }
+	void operator delete( void * ptr, char * filename, int line ) { mpool_destroy( Ar::mem_pool_ );MPOOL_FREE( (Ar*)ptr ); }
 	
 
 	char* buf_cur_;
